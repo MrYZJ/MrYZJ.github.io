@@ -30,21 +30,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/AV/index.html</loc>
-    
-    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/archives/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
@@ -58,7 +44,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/friends/index.html</loc>
+    <loc>http://yoursite.com/AV/index.html</loc>
+    
+    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/archives/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
@@ -73,6 +66,13 @@
   
   <url>
     <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/friends/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
