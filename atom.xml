@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-15T11:13:57.029Z</updated>
+  <updated>2019-08-09T02:00:17.833Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/undefined/0.html"/>
+    <id>http://yoursite.com/undefined/0.html</id>
+    <published>2019-10-15T14:40:16.781Z</published>
+    <updated>2019-08-09T02:00:17.833Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;最近在看《Android精彩编程200例》这本书，但是书中很多例子都存在一些问题，因此我在这里就对书中的实例进行修改。希望能对一些和我一样的初学者有所帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先来看一下效果图：&lt;br&gt;​​&lt;img
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>博客开源</title>
     <link href="http://yoursite.com/undefined/e3e08109.html"/>
     <id>http://yoursite.com/undefined/e3e08109.html</id>
     <published>2019-08-27T03:41:03.000Z</published>
-    <updated>2019-10-15T11:13:57.029Z</updated>
+    <updated>2019-10-15T12:55:36.631Z</updated>
     
     <summary type="html">
     
