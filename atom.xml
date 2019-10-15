@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-15T15:03:44.701Z</updated>
+  <updated>2019-10-15T15:21:27.759Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>模仿微信右上角弹出的菜单</title>
+    <link href="http://yoursite.com/undefined/e3e08109.html"/>
+    <id>http://yoursite.com/undefined/e3e08109.html</id>
+    <published>2019-10-15T14:48:00.000Z</published>
+    <updated>2019-10-15T15:21:27.759Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;最近在看《Android精彩编程200例》这本书，但是书中很多例子都存在一些问题，因此我在这里就对书中的实例进行修改。希望能对一些和我一样的初学者有所帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先来看一下效果图：&lt;br&gt;​​&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="菜单" scheme="http://yoursite.com/tags/%E8%8F%9C%E5%8D%95/"/>
+    
+      <category term="微信" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【转】博客开源</title>
     <link href="http://yoursite.com/undefined/e3e08109.html"/>
     <id>http://yoursite.com/undefined/e3e08109.html</id>
     <published>2019-10-15T12:41:03.000Z</published>
-    <updated>2019-10-15T15:03:44.701Z</updated>
+    <updated>2019-10-15T15:15:06.959Z</updated>
     
     <summary type="html">
     
