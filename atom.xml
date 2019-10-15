@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-15T15:28:46.332Z</updated>
+  <updated>2019-10-15T15:48:18.258Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ExoPlayer详解——高级主题（官方文档）</title>
+    <link href="http://yoursite.com/undefined/23d9b12d.html"/>
+    <id>http://yoursite.com/undefined/23d9b12d.html</id>
+    <published>2019-10-15T14:49:02.000Z</published>
+    <updated>2019-10-15T15:48:18.258Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ExoPlayer详解——媒体类型（官方文档）</title>
+    <link href="http://yoursite.com/undefined/92fbeb27.html"/>
+    <id>http://yoursite.com/undefined/92fbeb27.html</id>
+    <published>2019-10-15T14:49:01.000Z</published>
+    <updated>2019-10-15T15:48:28.516Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ExoPlayer详解——入门（官方文档）</title>
+    <link href="http://yoursite.com/undefined/95493443.html"/>
+    <id>http://yoursite.com/undefined/95493443.html</id>
+    <published>2019-10-15T14:49:00.000Z</published>
+    <updated>2019-10-15T15:48:32.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+    
+  </entry>
   
   <entry>
     <title>模仿微信右上角弹出的菜单</title>
