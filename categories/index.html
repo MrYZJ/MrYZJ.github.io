@@ -131,15 +131,6 @@
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/AV" class="waves-effect waves-light">
-            
-            <i class="fa fa-music"></i>
-            
-            <span>视听</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
         <a href="/galleries" class="waves-effect waves-light">
             
             <i class="fa fa-photo"></i>
@@ -285,19 +276,6 @@
       <li class="hide-on-med-and-down nav-item" >
 
         
-            <a href="/AV" class="waves-effect waves-light">
-              
-                <i class="fa fa-music"></i>
-              
-              <span>视听</span>
-            </a>
-
-            
-      </li>
-    
-      <li class="hide-on-med-and-down nav-item" >
-
-        
             <a href="/galleries" class="waves-effect waves-light">
               
                 <i class="fa fa-photo"></i>
@@ -416,15 +394,6 @@
                 <i class="fa fa-fw fa-heart"></i>
                 
                 福利
-            </a>
-        </li>
-        
-        <li>
-            <a href="/AV" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-music"></i>
-                
-                视听
             </a>
         </li>
         
@@ -560,17 +529,6 @@
         
         <li class="m-nav-item">
                 
-                    <a href="/AV" class="waves-effect waves-light">
-                        
-                        <i class="fa fa-fw fa-music"></i>
-                        
-                        视听
-                    </a>
-              
-            </li>
-        
-        <li class="m-nav-item">
-                
                     <a href="/galleries" class="waves-effect waves-light">
                         
                         <i class="fa fa-fw fa-photo"></i>
@@ -616,23 +574,6 @@
 
         
     </ul> -->
-	
-	 
-		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
-<!-- weather_plugin -->
-<script type="text/javascript">
-	WIDGET = {FID: '5z352kSocY'}
-</script>
-<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
-<script type="text/javascript"> //只在桌面版网页启用特效 
-	var windowWidth = $(window).width(); 
-	if (windowWidth > 768) {
-		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
-	}
- </script>
- 
-	
-
 </div>
 
         </div>
@@ -699,10 +640,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/告示/" title="告示: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">告示
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Android开发/" title="Android开发: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">Android开发
+                            style="background-color: #D5F5E3;">Android开发
                         <span class="tag-length">4</span>
                     </span>
                 </a>
@@ -711,17 +661,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/Android开发/ExoPlayer/" title="ExoPlayer: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">ExoPlayer
+                            style="background-color: #E8F8F5;">ExoPlayer
                         <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/告示/" title="告示: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #E8F8F5;">告示
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -767,7 +708,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"软件安装与配置","max":5},{"name":"Android开发","max":5},{"name":"ExoPlayer","max":5},{"name":"告示","max":5}],
+            indicator: [{"name":"软件安装与配置","max":5},{"name":"告示","max":5},{"name":"Android开发","max":5},{"name":"ExoPlayer","max":5}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -778,7 +719,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [1,4,3,1],
+                    value : [1,1,4,3],
                     name : '文章分类数量'
                 }
             ]
