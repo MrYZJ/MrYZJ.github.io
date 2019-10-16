@@ -629,6 +629,45 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     <div id="aboutme" class="container about-container">
         <div class="card">
+		
+			<div class="card">
+				<div class="card-content">
+					<div class="card-content article-card-content">
+							<div class="title center-align" data-aos="zoom-in-up">
+								<i class="fa fa-address-book"></i>&nbsp;&nbsp;关于本站
+							</div>
+							<div id="articleContent" data-aos="fade-up">
+								<h1 id="关于本站"><a href="#关于本站" class="headerlink" title="关于本站"></a>关于本站</h1><h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
+<li><p><b>电子邮箱</b><br><a href="mailto:2297541744@qq.com" target="_blank" rel="noopener">2297541744@qq.com</a></p>
+<p><a href="mailto:mryzj0716@gmail.com" target="_blank" rel="noopener">mryzj0716@gmail.com</a> </p>
+</li>
+<li><p><b>QQ</b><br>2297541744</p>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+							</div>
+					</div>
+				</div>
+			</div>
+			
             <div class="card-content">
                 <div class="row">
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
@@ -888,7 +927,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Android","ExoPlayer","福利","Hexo","Github","博客","音乐","视频","告示","投稿"]
+                data: ["Android","ExoPlayer","福利","Hexo","Github","博客","音乐","视频","菜单","微信"]
             }
         ],
         yAxis: [
@@ -934,44 +973,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
                 
                 
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-content">
-                <div class="card-content article-card-content">
-                        <div class="title center-align" data-aos="zoom-in-up">
-                            <i class="fa fa-address-book"></i>&nbsp;&nbsp;我的简历
-                        </div>
-                        <div id="articleContent" data-aos="fade-up">
-                            <h1 id="关于本站"><a href="#关于本站" class="headerlink" title="关于本站"></a>关于本站</h1><h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
-<li><p><b>电子邮箱</b><br><a href="mailto:2297541744@qq.com" target="_blank" rel="noopener">2297541744@qq.com</a></p>
-<p><a href="mailto:mryzj0716@gmail.com" target="_blank" rel="noopener">mryzj0716@gmail.com</a> </p>
-</li>
-<li><p><b>QQ</b><br>2297541744</p>
-</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                        </div>
-                </div>
             </div>
         </div>
 
