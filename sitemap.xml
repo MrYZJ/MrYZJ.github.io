@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/welfare/movies/index.html</loc>
+    
+    <lastmod>2019-10-16T11:37:35.790Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/AV/index.html</loc>
+    
+    <lastmod>2019-10-16T11:22:37.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/music/index.html</loc>
+    
+    <lastmod>2019-10-16T11:21:18.076Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/ebook/index.html</loc>
+    
+    <lastmod>2019-10-16T11:20:37.198Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/index.html</loc>
+    
+    <lastmod>2019-10-16T10:49:27.724Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/undefined/fcdefbb0.html</loc>
     
     <lastmod>2019-10-16T08:07:02.889Z</lastmod>
@@ -58,13 +93,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/AV/index.html</loc>
-    
-    <lastmod>2019-10-16T02:01:25.331Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2019-10-16T02:01:10.340Z</lastmod>
@@ -107,14 +135,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%873/index.html</loc>
+    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%874/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%874/index.html</loc>
+    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%873/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     

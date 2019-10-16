@@ -122,6 +122,15 @@
     </li>
     
     <li class="hide-on-med-and-down">
+        <a href="/welfare" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>福利</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
         <a href="/AV" class="waves-effect waves-light">
             
             <i class="fa fa-music"></i>
@@ -227,6 +236,50 @@
             </a>
 
             
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/welfare" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>福利</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/welfare/music" >
+                    
+                      <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>免费音乐</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/welfare/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>免费视频</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/welfare/ebook" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>免费电子书</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
       </li>
     
       <li class="hide-on-med-and-down nav-item" >
@@ -358,6 +411,15 @@
         </li>
         
         <li>
+            <a href="/welfare" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-heart"></i>
+                
+                福利
+            </a>
+        </li>
+        
+        <li>
             <a href="/AV" class="waves-effect waves-light">
                 
                 <i class="fa fa-fw fa-music"></i>
@@ -407,7 +469,7 @@
 
    
    
-<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- 支持二级菜单特性 -->
 <!-- <ul class="menu-list mobile-menu-list">
     
         <li class="m-nav-item">
@@ -451,6 +513,48 @@
                         
                         归档
                     </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                            
+                            <i class="fa fa-fw fa-heart"></i>
+                            
+                            福利
+                            <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                <ul>
+                  
+                    <li> 
+                      <a href="/welfare/music" >
+                           
+                            <i class="fa fa-music" style="left: 18px; position: absolute;"></i>
+                       
+                       <span>免费音乐</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/welfare/movies" >
+                           
+                            <i class="fa fa-film" style="left: 18px; position: absolute;"></i>
+                       
+                       <span>免费视频</span>
+                      </a>
+                    </li>
+                  
+                    <li> 
+                      <a href="/welfare/ebook" >
+                           
+                            <i class="fa fa-book" style="left: 18px; position: absolute;"></i>
+                       
+                       <span>免费电子书</span>
+                      </a>
+                    </li>
+                   
+                </ul>
               
             </li>
         
@@ -512,6 +616,22 @@
 
         
     </ul> -->
+	
+	 
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+	
 
 </div>
 
@@ -570,32 +690,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <div class="card-content">
                 <div class="card-content article-card-content">
                         <div class="title center-align" data-aos="zoom-in-up">
-                            <i class="fa fa-download"></i>&nbsp;&nbsp;资源共享
+                            <i class="fa fa-music"></i>&nbsp;&nbsp;免费音乐
                         </div>
-                        <div id="articleContent" data-aos="fade-up">
-                            <h1 id="影音资源共享"><a href="#影音资源共享" class="headerlink" title="影音资源共享"></a>影音资源共享</h1><ul>
-<li><b>这里准备用来分享各类好玩的资源</b></li>
-<li><b>待更新……<b></b></b></li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+						
+						<div class="title center-align" data-aos="zoom-in-up">
+                            <i class="fa fa-film"></i>&nbsp;&nbsp;免费视频
                         </div>
                 </div>
             </div>
@@ -603,7 +702,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 	
         <div class="card">
             <div class="card-content">
-
                 <div class="music-player">
                     <div class="title center-align">
                         <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
@@ -643,7 +741,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     });
 </script>
                     
-
                 </div>
 
                 
@@ -764,6 +861,41 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     });
 </script>
                 
+            </div>
+        </div>
+
+		<div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                        <div class="title center-align" data-aos="zoom-in-up">
+                            <i class="fa fa-download"></i>&nbsp;&nbsp;资源共享
+                        </div>
+                        <div id="articleContent" data-aos="fade-up">
+                            <h1 id="音乐福利"><a href="#音乐福利" class="headerlink" title="音乐福利"></a>音乐福利</h1><h1 id="视频福利"><a href="#视频福利" class="headerlink" title="视频福利"></a>视频福利</h1><ul>
+<li><b>这里准备用来分享各类好玩的资源</b></li>
+<li><b>待更新……<b></b></b></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                        </div>
+                </div>
             </div>
         </div>
 
