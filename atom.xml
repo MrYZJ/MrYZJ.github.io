@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>爱分享</title>
   
-  <subtitle>爱分享</subtitle>
+  <subtitle>爱生活，爱分享！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-16T02:42:49.734Z</updated>
+  <updated>2019-10-16T02:57:58.510Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/undefined/fcdefbb0.html"/>
     <id>http://yoursite.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
-    <updated>2019-10-16T02:42:49.734Z</updated>
+    <updated>2019-10-16T02:57:58.510Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;投稿告示&quot;&gt;&lt;a href=&quot;#投稿告示&quot; class=&quot;headerlink&quot; title=&quot; 投稿告示 &quot;&gt;&lt;/a&gt;&lt;center&gt; 投稿告示 &lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;分享目的&quot;&gt;&lt;a href=&quot;#分享目的&quot;
+          &lt;h1 id=&quot;投稿告示&quot;&gt;&lt;a href=&quot;#投稿告示&quot; class=&quot;headerlink&quot; title=&quot; 投稿告示 &quot;&gt;&lt;/a&gt;&lt;center&gt; 投稿告示 &lt;/center&gt;&lt;/h1&gt;&lt;p&gt;&lt;img
         
       
     
@@ -49,7 +49,7 @@
     <link href="http://yoursite.com/undefined/23d9b12d.html"/>
     <id>http://yoursite.com/undefined/23d9b12d.html</id>
     <published>2019-10-15T14:49:02.000Z</published>
-    <updated>2019-10-16T01:50:00.511Z</updated>
+    <updated>2019-10-16T02:52:08.398Z</updated>
     
     <summary type="html">
     
@@ -82,7 +82,7 @@
     <link href="http://yoursite.com/undefined/92fbeb27.html"/>
     <id>http://yoursite.com/undefined/92fbeb27.html</id>
     <published>2019-10-15T14:49:01.000Z</published>
-    <updated>2019-10-16T01:50:18.068Z</updated>
+    <updated>2019-10-16T02:52:39.122Z</updated>
     
     <summary type="html">
     
@@ -115,7 +115,7 @@
     <link href="http://yoursite.com/undefined/95493443.html"/>
     <id>http://yoursite.com/undefined/95493443.html</id>
     <published>2019-10-15T14:49:00.000Z</published>
-    <updated>2019-10-16T01:50:32.766Z</updated>
+    <updated>2019-10-16T02:53:02.632Z</updated>
     
     <summary type="html">
     
@@ -137,10 +137,6 @@
       <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
-    
   </entry>
   
   <entry>
@@ -148,7 +144,7 @@
     <link href="http://yoursite.com/undefined/84ab7afd.html"/>
     <id>http://yoursite.com/undefined/84ab7afd.html</id>
     <published>2019-10-15T14:48:00.000Z</published>
-    <updated>2019-10-16T01:39:51.676Z</updated>
+    <updated>2019-10-16T02:56:16.317Z</updated>
     
     <summary type="html">
     
@@ -181,7 +177,7 @@
     <link href="http://yoursite.com/undefined/e3e08109.html"/>
     <id>http://yoursite.com/undefined/e3e08109.html</id>
     <published>2019-10-15T12:41:03.000Z</published>
-    <updated>2019-10-16T01:50:46.841Z</updated>
+    <updated>2019-10-16T02:50:39.724Z</updated>
     
     <summary type="html">
     

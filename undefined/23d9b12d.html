@@ -904,17 +904,20 @@ ExoPlayer详解——高级主题（官方文档）
 <li><strong>为什么有些流会因HTTP响应代码301或302而失败？</strong></li>
 </ul>
 <p>HTTP响应代码301和302都指示重定向。可以在<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">维基百科</a>上找到简要描述。当ExoPlayer发出请求并收到状态码为301或302的响应时，它通常会遵循重定向并正常开始播放。默认情况下不会发生这种情况的一种情况是跨协议重定向。跨协议重定向是从HTTPS重定向到HTTP或反之亦然（或者不太常见，在另一对协议之间）。您可以使用<a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener">wget</a>命令行工具测试URL是否导致跨协议重定向，如下所示：</p>
-<pre><code>    wget "https://yourserver.com/test.mp3" 2&gt;&amp;1  | grep Location</code></pre><p>输出应该如下所示：</p>
-<pre><code>    $ wget "https://yourserver.com/test.mp3" 2&gt;&amp;1  | grep Location
-    Location: https://second.com/test.mp3 [following]
-    Location: http://third.com/test.mp3 [following]</code></pre><p>在此示例中，有两个重定向。第一个重定向是从 <code>https://yourserver.com/test.mp3到https://second.com/test.mp3</code>。两者都是HTTPS，因此这不是跨协议重定向。第二重定向是从 <code>https://second.com/test.mp3</code>到<code>http://third.com/test.mp3</code>。这会从HTTPS重定向到HTTP，因此是跨协议重定向。ExoPlayer在默认配置中不会遵循此重定向，这意味着播放将失败。</p>
+<figure class="highlight lsl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://yourserver.com/test.mp3"</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span>  | grep Location</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出应该如下所示：</p>
+<figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget <span class="string">"https://yourserver.com/test.mp3"</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span>  | grep Location</span><br><span class="line"><span class="string">Location:</span> <span class="string">https:</span><span class="comment">//second.com/test.mp3 [following]</span></span><br><span class="line"><span class="string">Location:</span> <span class="string">http:</span><span class="comment">//third.com/test.mp3 [following]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在此示例中，有两个重定向。第一个重定向是从 <code>https://yourserver.com/test.mp3到https://second.com/test.mp3</code>。两者都是HTTPS，因此这不是跨协议重定向。第二重定向是从 <code>https://second.com/test.mp3</code>到<code>http://third.com/test.mp3</code>。这会从HTTPS重定向到HTTP，因此是跨协议重定向。ExoPlayer在默认配置中不会遵循此重定向，这意味着播放将失败。</p>
 <p>如果需要，可以在实例化<code>ExoPlayer</code>应用程序中<code>HttpDataSource.Factory</code>使用的实例时，将ExoPlayer配置为遵循跨协议重定向。<code>[DefaultHttpDataSourceFactory](https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/DefaultHttpDataSourceFactory.html)</code>具有为此目的接受参数的构造函数<code>allowCrossProtocolRedirects</code>，其他 <code>HttpDataSource.Factory</code>实现也是如此。将这些参数设置为<code>true</code>以启用跨协议重定向。</p>
 <ul>
 <li><strong>为什么有些流因UnrecognizedInputFormatException而失败？</strong></li>
 </ul>
 <p>此问题与表单的播放失败有关：</p>
-<pre><code>    UnrecognizedInputFormatException: None of the available extractors
-    (MatroskaExtractor, FragmentedMp4Extractor, ...) could read the stream.</code></pre><p>这种失败有两种可能的原因。最常见的原因是您尝试使用<code>ProgressiveMediaSource</code>播放DASH（mpd），HLS（m3u8）或SmoothStreaming（ism，isml）内容。要播放这些流，你必须使用正确<code>MediaSource</code>的实现，这分别是<code>DashMediaSource</code>， <code>HlsMediaSource</code>和<code>SsMediaSource</code>。如果您不知道媒体的类型，那么经常可以使用<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/util/Util.html#inferContentType-android.net.Uri-" target="_blank" rel="noopener">Util.inferContentType</a>，如 演示应用程序ExoPlayer中<code>PlayerActivity</code>所示。</p>
+<figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UnrecognizedInputFormatException: None <span class="keyword">of</span> <span class="keyword">the</span> available extractors</span><br><span class="line">(MatroskaExtractor, FragmentedMp4Extractor, ...) could <span class="built_in">read</span> <span class="keyword">the</span> stream.</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这种失败有两种可能的原因。最常见的原因是您尝试使用<code>ProgressiveMediaSource</code>播放DASH（mpd），HLS（m3u8）或SmoothStreaming（ism，isml）内容。要播放这些流，你必须使用正确<code>MediaSource</code>的实现，这分别是<code>DashMediaSource</code>， <code>HlsMediaSource</code>和<code>SsMediaSource</code>。如果您不知道媒体的类型，那么经常可以使用<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/util/Util.html#inferContentType-android.net.Uri-" target="_blank" rel="noopener">Util.inferContentType</a>，如 演示应用程序ExoPlayer中<code>PlayerActivity</code>所示。</p>
 <p>第二个不常见的原因是，ExoPlayer不支持您尝试播放的媒体的容器格式。在这种情况下，故障按预期工作，但随意向我们的问题跟踪器提交功能请求 ，包括容器格式和测试流的详细信息。请在提交新功能之前搜索现有功能请求。</p>
 <ul>
 <li><strong>为什么setPlaybackParameters在某些设备上无法正常工作？</strong></li>
@@ -1007,80 +1010,59 @@ ExoPlayer详解——高级主题（官方文档）
 <hr>
 <h1 id="五、APK收缩"><a href="#五、APK收缩" class="headerlink" title="五、APK收缩"></a>五、APK收缩</h1><p>最小化APK大小是开发优秀Android应用程序的一个重要方面。在针对发展中市场以及开发Android Instant App时尤其如此。对于这种情况，可能需要最小化APK中包含的ExoPlayer库的大小。本页概述了一些有助于实现此目的的简单步骤。</p>
 <h2 id="1、使用模块化依赖项"><a href="#1、使用模块化依赖项" class="headerlink" title="1、使用模块化依赖项"></a>1、使用模块化依赖项</h2><p>使用ExoPlayer最方便的方法是向完整库添加依赖项：</p>
-<pre><code>    implementation 'com.google.android.exoplayer:exoplayer:2.X.X'</code></pre><p>但是，这可能会提供比您的应用需求更多的功能。相反，只依赖于您实际需要的库模块。例如，以下内容将添加对Core，DASH和UI库模块的依赖关系，这对于播放DASH内容的应用程序可能是必需的：</p>
-<pre><code>    implementation 'com.google.android.exoplayer:exoplayer-core:2.X.X'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.X.X'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.X.X'</code></pre><h2 id="1、使用ProGuard并缩小资源"><a href="#1、使用ProGuard并缩小资源" class="headerlink" title="1、使用ProGuard并缩小资源"></a>1、使用ProGuard并缩小资源</h2><p>通过在应用模块的<code>build.gradle</code>文件中启用<code>ProGuard</code>，可以删除应用未使用的类：</p>
-<pre><code>    buildTypes {
-       release {
-           minifyEnabled true
-           shrinkResources true
-           useProguard true
-           proguardFiles = [
-               getDefaultProguardFile('proguard-android.txt'),
-               'proguard-rules.pro'
-           ]
-       }
-    }</code></pre><p>ExoPlayer的结构允许<code>ProGuard</code>删除未使用的功能。例如，对于播放DASH内容的应用，ExoPlayer对APK大小的贡献可以减少大约40％。</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implementation</span> <span class="string">'com.google.android.exoplayer:exoplayer:2.X.X'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>但是，这可能会提供比您的应用需求更多的功能。相反，只依赖于您实际需要的库模块。例如，以下内容将添加对Core，DASH和UI库模块的依赖关系，这对于播放DASH内容的应用程序可能是必需的：</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implementation</span> <span class="string">'com.google.android.exoplayer:exoplayer-core:2.X.X'</span></span><br><span class="line"><span class="keyword">implementation</span> <span class="string">'com.google.android.exoplayer:exoplayer-dash:2.X.X'</span></span><br><span class="line"><span class="keyword">implementation</span> <span class="string">'com.google.android.exoplayer:exoplayer-ui:2.X.X'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="1、使用ProGuard并缩小资源"><a href="#1、使用ProGuard并缩小资源" class="headerlink" title="1、使用ProGuard并缩小资源"></a>1、使用ProGuard并缩小资源</h2><p>通过在应用模块的<code>build.gradle</code>文件中启用<code>ProGuard</code>，可以删除应用未使用的类：</p>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">buildTypes</span> {</span><br><span class="line">   <span class="section">release</span> {</span><br><span class="line">       <span class="attribute">minifyEnabled</span> <span class="literal">true</span></span><br><span class="line">       shrinkResources <span class="literal">true</span></span><br><span class="line">       useProguard <span class="literal">true</span></span><br><span class="line">       proguardFiles = [</span><br><span class="line">           getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>),</span><br><span class="line">           <span class="string">'proguard-rules.pro'</span></span><br><span class="line">       ]</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>ExoPlayer的结构允许<code>ProGuard</code>删除未使用的功能。例如，对于播放DASH内容的应用，ExoPlayer对APK大小的贡献可以减少大约40％。</p>
 <p><code>shrinkResources</code>在app模块的<code>build.gradle</code>文件中启用可以进一步减小尺寸。</p>
 <h2 id="2、指定您的应用需要哪些提取器"><a href="#2、指定您的应用需要哪些提取器" class="headerlink" title="2、指定您的应用需要哪些提取器"></a>2、指定您的应用需要哪些提取器</h2><p>如果您的应用使用<code>ProgressiveMediaSource</code>，请注意默认情况下会使用 <code>DefaultExtractorsFactory</code>。DefaultExtractorsFactory取决于ExoPlayer库中提供的所有<code>Extractor</code>\实现，因此<code>ProGuard</code>不会删除它们。如果您知道您的应用只需要播放少量容器格式，则可以指定自己的容器格式<code>ExtractorsFactory</code>。例如，只需要播放mp4文件的应用程序可以定义如下工厂：</p>
-<pre><code>    private class Mp4ExtractorsFactory implements ExtractorsFactory {
-      @Override
-      public Extractor[] createExtractors() {
-          return new Extractor[] {new Mp4Extractor()};
-      }
-    }</code></pre><p>并在实例化<code>ProgressiveMediaSource</code>实例时使用它，例如：</p>
-<pre><code>    new ProgressiveMediaSource.Factory(
-            mediaDataSourceFactory, new Mp4ExtractorsFactory())
-        .createMediaSource(uri);</code></pre><p>这将允许<code>ExtractorProGuard</code>删除其他实现，这可以显着减小大小。</p>
+<figure class="highlight haxe"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Mp4ExtractorsFactory</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">ExtractorsFactory</span></span> </span>{</span><br><span class="line">  @Override</span><br><span class="line">  <span class="keyword">public</span> Extractor[] createExtractors() {</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">Extractor</span>[] {<span class="keyword">new</span> <span class="type">Mp4Extractor</span>()};</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>并在实例化<code>ProgressiveMediaSource</code>实例时使用它，例如：</p>
+<figure class="highlight haxe"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">ProgressiveMediaSource</span>.Factory(</span><br><span class="line">        mediaDataSourceFactory, <span class="keyword">new</span> <span class="type">Mp4ExtractorsFactory</span>())</span><br><span class="line">    .createMediaSource(uri);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这将允许<code>ExtractorProGuard</code>删除其他实现，这可以显着减小大小。</p>
 <h2 id="3、指定您的应用需要哪些渲染器"><a href="#3、指定您的应用需要哪些渲染器" class="headerlink" title="3、指定您的应用需要哪些渲染器"></a>3、指定您的应用需要哪些渲染器</h2><p>如果您的应用使用<code>SimpleExoPlayer</code>，请注意默认情况下将使用播放器的渲染器创建<code>DefaultRenderersFactory</code>。 <code>DefaultRenderersFactory</code>取决于ExoPlayer库中提供的所有<code>Renderer</code>实现，因此<code>ProGuard</code>不会删除它们。如果您知道您的应用只需要渲染器的子集，则可以指定自己的渲染器<code>RenderersFactory</code>。例如，只播放音频的应用可以定义工厂，如：</p>
-<pre><code>    private class AudioOnlyRenderersFactory implements RenderersFactory {
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioOnlyRenderersFactory</span> <span class="keyword">implements</span> <span class="title">RenderersFactory</span> </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Context context;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">AudioOnlyRenderersFactory</span><span class="params">(Context context)</span> </span>{</span><br><span class="line">    <span class="keyword">this</span>.context = context;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> Renderer[] createRenderers(</span><br><span class="line">      Handler eventHandler,</span><br><span class="line">      VideoRendererEventListener videoRendererEventListener,</span><br><span class="line">      AudioRendererEventListener audioRendererEventListener,</span><br><span class="line">      TextOutput textRendererOutput,</span><br><span class="line">      MetadataOutput metadataRendererOutput,</span><br><span class="line">      DrmSessionManager&lt;FrameworkMediaCrypto&gt; drmSessionManager) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Renderer[] {<span class="keyword">new</span> MediaCodecAudioRenderer(</span><br><span class="line">        MediaCodecSelector.DEFAULT, eventHandler, audioRendererEventListener)};</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-      private final Context context;
+<p>并在实例化<code>SimpleExoPlayer</code>实例时使用它，例如：</p>
+<figure class="highlight haxe"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SimpleExoPlayer player = ExoPlayerFactory.<span class="keyword">new</span><span class="type">SimpleInstance</span>(</span><br><span class="line">    context, <span class="keyword">new</span> <span class="type">AudioOnlyRenderersFactory</span>(context), trackSelector);</span><br></pre></td></tr></tbody></table></figure>
 
-      public AudioOnlyRenderersFactory(Context context) {
-        this.context = context;
-      }
-
-      @Override
-      public Renderer[] createRenderers(
-          Handler eventHandler,
-          VideoRendererEventListener videoRendererEventListener,
-          AudioRendererEventListener audioRendererEventListener,
-          TextOutput textRendererOutput,
-          MetadataOutput metadataRendererOutput,
-          DrmSessionManager&lt;FrameworkMediaCrypto&gt; drmSessionManager) {
-        return new Renderer[] {new MediaCodecAudioRenderer(
-            MediaCodecSelector.DEFAULT, eventHandler, audioRendererEventListener)};
-      }
-
-    }</code></pre><p>并在实例化<code>SimpleExoPlayer</code>实例时使用它，例如：</p>
-<pre><code>    SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(
-        context, new AudioOnlyRenderersFactory(context), trackSelector);</code></pre><p>这将允许<code>ProGuard</code>删除其<code>Renderer</code>他实现。在此特定示例中，视频，文本和元数据渲染器将被删除。</p>
+<p>这将允许<code>ProGuard</code>删除其<code>Renderer</code>他实现。在此特定示例中，视频，文本和元数据渲染器将被删除。</p>
 <hr>
 <hr>
 <h1 id="六、OEM测试"><a href="#六、OEM测试" class="headerlink" title="六、OEM测试"></a>六、OEM测试</h1><p>ExoPlayer被大量Android应用程序使用。作为OEM，确保ExoPlayer在新设备和现有设备的新平台构建上都能正常工作非常重要。此页面介绍了我们建议在运送设备或平台OTA之前运行的兼容性测试，以及运行它们时遇到的一些常见故障模式。</p>
 <h2 id="1、运行测试"><a href="#1、运行测试" class="headerlink" title="1、运行测试"></a>1、运行测试</h2><p>要运行ExoPlayer的回放测试，首先从GitHub查看最新版本的ExoPlayer 。然后，您可以从命令行或Android Studio运行测试。</p>
 <h3 id="（1）、命令行"><a href="#（1）、命令行" class="headerlink" title="（1）、命令行"></a>（1）、命令行</h3><p>从根目录，构建并安装回放测试：</p>
-<pre><code>    ./gradlew :playbacktests:installDebug</code></pre><p>接下来，在GTS包中运行回放测试：</p>
-<pre><code>adb shell am instrument -w -r -e debug false \
-  -e package com.google.android.exoplayer2.playbacktests.gts \
-  com.google.android.exoplayer2.playbacktests.test/android.test.InstrumentationTestRunner</code></pre><p>测试结果显示在STDOUT中。</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew <span class="symbol">:playbacktests</span><span class="symbol">:installDebug</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来，在GTS包中运行回放测试：</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell am instrument -w -r -e debug false \</span><br><span class="line">  -e package com<span class="selector-class">.google</span><span class="selector-class">.android</span><span class="selector-class">.exoplayer2</span><span class="selector-class">.playbacktests</span><span class="selector-class">.gts</span> \</span><br><span class="line">  com<span class="selector-class">.google</span><span class="selector-class">.android</span><span class="selector-class">.exoplayer2</span><span class="selector-class">.playbacktests</span><span class="selector-class">.test</span>/android<span class="selector-class">.test</span><span class="selector-class">.InstrumentationTestRunner</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>测试结果显示在STDOUT中。</p>
 <h3 id="（2）、Android-Studio"><a href="#（2）、Android-Studio" class="headerlink" title="（2）、Android Studio"></a>（2）、Android Studio</h3><p>打开ExoPlayer项目，导航到该<code>playbacktests</code>模块，右键单击该<code>gts</code>文件夹并运行测试。测试结果显示在Android Studio的“运行”窗口中。</p>
 <h2 id="2、常见故障模式"><a href="#2、常见故障模式" class="headerlink" title="2、常见故障模式"></a>2、常见故障模式</h2><p>下面介绍运行ExoPlayer播放测试时遇到的一些常见故障模式，以及每种情况下可能的根本原因。我们将添加到此列表中，因为会发现更多故障模式。</p>
 <h3 id="（1）、意外的视频缓冲区演示时间戳"><a href="#（1）、意外的视频缓冲区演示时间戳" class="headerlink" title="（1）、意外的视频缓冲区演示时间戳"></a>（1）、意外的视频缓冲区演示时间戳</h3><p>Logcat将包含类似于的错误：</p>
-<pre><code>    Caused by: java.lang.IllegalStateException: Expected to dequeue video buffer
-    with presentation timestamp: 134766000. Instead got: 134733000 (Processed
-    buffers since last flush: 2242).</code></pre><p>这种故障通常是由于被测视频解码器错误地丢弃，插入或重新排序缓冲区引起的。在上面的示例中，测试期望134766000从<code>MediaCodec.dequeueOutputBuffer</code>具有显示时间戳的缓冲区出列 ，但发现它使用呈现时间戳使缓冲区出列134733000。我们建议您在遇到此故障时检查解码器实现，特别是它正确处理自适应分辨率开关而不丢弃任何缓冲区。</p>
+<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalStateException: Expected <span class="keyword">to</span> dequeue video <span class="keyword">buffer</span></span><br><span class="line">with presentation timestamp: <span class="number">134766000</span>. Instead <span class="keyword">go</span><span class="variable">t:</span> <span class="number">134733000</span> (Processed</span><br><span class="line"><span class="keyword">buffers</span> since <span class="keyword">last</span> flush: <span class="number">2242</span>).</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这种故障通常是由于被测视频解码器错误地丢弃，插入或重新排序缓冲区引起的。在上面的示例中，测试期望134766000从<code>MediaCodec.dequeueOutputBuffer</code>具有显示时间戳的缓冲区出列 ，但发现它使用呈现时间戳使缓冲区出列134733000。我们建议您在遇到此故障时检查解码器实现，特别是它正确处理自适应分辨率开关而不丢弃任何缓冲区。</p>
 <h3 id="（2）、丢失的缓冲区太多了"><a href="#（2）、丢失的缓冲区太多了" class="headerlink" title="（2）、丢失的缓冲区太多了"></a>（2）、丢失的缓冲区太多了</h3><p>Logcat将包含类似于的错误：</p>
-<pre><code>    junit.framework.AssertionFailedError: Codec(DashTest:Video) was late decoding:
-    200 buffers. Limit: 25.</code></pre><p>这种故障是性能问题，其中被测视频解码器对大量缓冲器进行后期解码。在上面的示例中，ExoPlayer丢弃了200个缓冲区，因为它们在出列时已经迟到了，对于一个限制为25的测试。最明显的原因是视频解码器解码缓冲区太慢。如果故障仅发生在播放Widevine受保护内容的测试子集中，则缓冲区解密的平台操作可能太慢。我们建议检查这些组件的性能，并查看是否可以进行任何优化以加快它们的速度。</p>
+<figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">junit.framework.<span class="string">AssertionFailedError:</span> Codec(<span class="string">DashTest:</span>Video) was late <span class="string">decoding:</span></span><br><span class="line"><span class="number">200</span> buffers. <span class="string">Limit:</span> <span class="number">25.</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这种故障是性能问题，其中被测视频解码器对大量缓冲器进行后期解码。在上面的示例中，ExoPlayer丢弃了200个缓冲区，因为它们在出列时已经迟到了，对于一个限制为25的测试。最明显的原因是视频解码器解码缓冲区太慢。如果故障仅发生在播放Widevine受保护内容的测试子集中，则缓冲区解密的平台操作可能太慢。我们建议检查这些组件的性能，并查看是否可以进行任何优化以加快它们的速度。</p>
 <h3 id="（3）、无法验证本机窗口"><a href="#（3）、无法验证本机窗口" class="headerlink" title="（3）、无法验证本机窗口"></a>（3）、无法验证本机窗口</h3><p>Logcat将包含类似于的错误：</p>
-<pre><code>    SurfaceUtils: native window could not be authenticated
-    ExoPlayerImplInternal: Internal runtime error.
-    ExoPlayerImplInternal: android.media.MediaCodec$CodecException: Error 0xffffffff</code></pre><p>此失败表示平台未能正确设置安全位标志。</p>
+<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SurfaceUtil<span class="variable">s:</span> native window could not <span class="keyword">be</span> authenticated</span><br><span class="line">ExoPlayerImplInterna<span class="variable">l:</span> Internal <span class="keyword">runtime</span> error.</span><br><span class="line">ExoPlayerImplInterna<span class="variable">l:</span> android.media.MediaCodec$CodecException: Error <span class="number">0</span>xffffffff</span><br></pre></td></tr></tbody></table></figure>
+
+<p>此失败表示平台未能正确设置安全位标志。</p>
 <h3 id="（4）、测试超时"><a href="#（4）、测试超时" class="headerlink" title="（4）、测试超时"></a>（4）、测试超时</h3><p>Logcat将包含类似于的错误：</p>
-<pre><code>AssertionFailedError: Test timed out after 300000 ms.</code></pre><p>此故障通常是由测试运行期间网络连接不良引起的。如果设备出现有良好的网络连接，然后它可能是在测试卡住调用到一个平台组件（例如 <code>MediaCodec</code>，<code>MediaDrm</code>，<code>AudioTrack</code>等）。检查测试过程中线程的调用堆栈以确定是否是这种情况。</p>
+<figure class="highlight avrasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">AssertionFailedError:</span> Test timed <span class="keyword">out</span> after <span class="number">300000</span> ms.</span><br></pre></td></tr></tbody></table></figure>
+
+<p>此故障通常是由测试运行期间网络连接不良引起的。如果设备出现有良好的网络连接，然后它可能是在测试卡住调用到一个平台组件（例如 <code>MediaCodec</code>，<code>MediaDrm</code>，<code>AudioTrack</code>等）。检查测试过程中线程的调用堆栈以确定是否是这种情况。</p>
 <hr>
 <hr>
 <h1 id="七、设计RFC状态的文档"><a href="#七、设计RFC状态的文档" class="headerlink" title="七、设计RFC状态的文档"></a>七、设计RFC状态的文档</h1><ul>
@@ -1282,8 +1264,8 @@ ExoPlayer详解——高级主题（官方文档）
         clientID: '60da9d8e9e64806f54ef',
         clientSecret: '81d3af2a76badd01407226de447d49d098bcd934',
         repo: 'MrYZJ.github.io',
-        owner: '叶子杰',
-        admin: ["叶子杰"],
+        owner: 'MrYZJ',
+        admin: ["MrYZJ"],
         id: 'undefined/23d9b12d.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
@@ -1879,7 +1861,7 @@ ExoPlayer详解——高级主题（官方文档）
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">21k</span> 字
+                <span class="white-color">21.1k</span> 字
             
 
             
