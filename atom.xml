@@ -49,7 +49,7 @@
     <link href="http://yoursite.com/undefined/23d9b12d.html"/>
     <id>http://yoursite.com/undefined/23d9b12d.html</id>
     <published>2019-10-15T14:49:02.000Z</published>
-    <updated>2019-10-16T02:52:08.398Z</updated>
+    <updated>2019-10-16T03:06:37.030Z</updated>
     
     <summary type="html">
     
@@ -82,7 +82,7 @@
     <link href="http://yoursite.com/undefined/92fbeb27.html"/>
     <id>http://yoursite.com/undefined/92fbeb27.html</id>
     <published>2019-10-15T14:49:01.000Z</published>
-    <updated>2019-10-16T02:52:39.122Z</updated>
+    <updated>2019-10-16T03:06:24.795Z</updated>
     
     <summary type="html">
     
@@ -115,7 +115,7 @@
     <link href="http://yoursite.com/undefined/95493443.html"/>
     <id>http://yoursite.com/undefined/95493443.html</id>
     <published>2019-10-15T14:49:00.000Z</published>
-    <updated>2019-10-16T02:53:02.632Z</updated>
+    <updated>2019-10-16T03:06:15.391Z</updated>
     
     <summary type="html">
     
@@ -136,6 +136,10 @@
     
       <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
     
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
     
   </entry>
   
