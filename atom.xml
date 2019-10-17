@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>爱分享</title>
+  <title>分享客</title>
   
   <subtitle>爱生活，爱分享！</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -45,11 +45,11 @@
   </entry>
   
   <entry>
-    <title>欢迎投稿</title>
+    <title>欢迎来稿</title>
     <link href="http://yoursite.com/undefined/fcdefbb0.html"/>
     <id>http://yoursite.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
-    <updated>2019-10-16T08:07:02.889Z</updated>
+    <updated>2019-10-17T07:01:14.459Z</updated>
     
     <summary type="html">
     
@@ -57,7 +57,7 @@
       
         
         
-          &lt;h1 id=&quot;投稿告示&quot;&gt;&lt;a href=&quot;#投稿告示&quot; class=&quot;headerlink&quot; title=&quot; 投稿告示 &quot;&gt;&lt;/a&gt;&lt;center&gt; 投稿告示 &lt;/center&gt;&lt;/h1&gt;&lt;p&gt;&lt;img
+          &lt;h1 id=&quot;来稿告示&quot;&gt;&lt;a href=&quot;#来稿告示&quot; class=&quot;headerlink&quot; title=&quot; 来稿告示 &quot;&gt;&lt;/a&gt;&lt;center&gt; 来稿告示 &lt;/center&gt;&lt;/h1&gt;&lt;p&gt;&lt;img
         
       
     
@@ -105,7 +105,7 @@
     <link href="http://yoursite.com/undefined/23d9b12d.html"/>
     <id>http://yoursite.com/undefined/23d9b12d.html</id>
     <published>2019-10-15T14:49:02.000Z</published>
-    <updated>2019-10-16T14:20:58.346Z</updated>
+    <updated>2019-10-17T07:02:37.042Z</updated>
     
     <summary type="html">
     
@@ -113,10 +113,7 @@
       
         
         
-          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+          &lt;h1 id=&quot;一、数字版权管理&quot;&gt;&lt;a href=&quot;#一、数字版权管理&quot; class=&quot;headerlink&quot;
         
       
     
@@ -138,7 +135,7 @@
     <link href="http://yoursite.com/undefined/92fbeb27.html"/>
     <id>http://yoursite.com/undefined/92fbeb27.html</id>
     <published>2019-10-15T14:49:01.000Z</published>
-    <updated>2019-10-16T14:21:08.004Z</updated>
+    <updated>2019-10-17T07:02:22.659Z</updated>
     
     <summary type="html">
     
@@ -146,10 +143,7 @@
       
         
         
-          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+          &lt;h1 id=&quot;一、DASH&quot;&gt;&lt;a href=&quot;#一、DASH&quot; class=&quot;headerlink&quot;
         
       
     
@@ -171,7 +165,7 @@
     <link href="http://yoursite.com/undefined/95493443.html"/>
     <id>http://yoursite.com/undefined/95493443.html</id>
     <published>2019-10-15T14:49:00.000Z</published>
-    <updated>2019-10-16T14:21:15.280Z</updated>
+    <updated>2019-10-17T07:02:54.043Z</updated>
     
     <summary type="html">
     
@@ -179,10 +173,8 @@
       
         
         
-          &lt;p&gt;﻿&amp;gt;  #####  ExoPlayer详解系列文章&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/MRYZJ/article/details/98657228&quot; target=&quot;_blank&quot;
+          &lt;h1 id=&quot;一、ExoPlayer，你好&quot;&gt;&lt;a href=&quot;#一、ExoPlayer，你好&quot; class=&quot;headerlink&quot; title=&quot;一、ExoPlayer，你好&quot;&gt;&lt;/a&gt;一、ExoPlayer，你好&lt;/h1&gt;&lt;blockquote&gt;
+&lt;h3
         
       
     
@@ -204,7 +196,7 @@
     <link href="http://yoursite.com/undefined/84ab7afd.html"/>
     <id>http://yoursite.com/undefined/84ab7afd.html</id>
     <published>2019-10-15T14:48:00.000Z</published>
-    <updated>2019-10-16T14:21:23.915Z</updated>
+    <updated>2019-10-17T07:03:28.095Z</updated>
     
     <summary type="html">
     
