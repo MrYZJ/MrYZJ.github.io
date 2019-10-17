@@ -81,9 +81,26 @@
             </div>
             
 
-
 <!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
+
+	<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+	 
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+	
+
     
     <li class="hide-on-med-and-down">
         <a href="/" class="waves-effect waves-light">
@@ -173,7 +190,7 @@
     </li>
 </ul> -->
 
-<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- 支持二级菜单特性 modify 2019.09.17  -->
 <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right nav-menu">
     
@@ -918,7 +935,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"软件安装与配置","value":1},{"name":"Android开发","value":4},{"name":"福利","value":2},{"name":"ExoPlayer","value":3},{"name":"告示","value":1}],
+                data: [{"name":"软件安装与配置","value":1},{"name":"福利","value":2},{"name":"Android开发","value":4},{"name":"告示","value":1},{"name":"ExoPlayer","value":3}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
