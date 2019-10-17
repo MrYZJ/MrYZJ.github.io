@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sharerdiary.com/music/index.html</loc>
+    
+    <lastmod>2019-10-17T14:54:51.911Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sharerdiary.com/ebook/index.html</loc>
+    
+    <lastmod>2019-10-17T14:54:32.799Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sharerdiary.com/movies/index.html</loc>
+    
+    <lastmod>2019-10-17T14:53:45.212Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sharerdiary.com/undefined/84ab7afd.html</loc>
     
     <lastmod>2019-10-17T07:03:28.095Z</lastmod>
@@ -40,27 +61,6 @@
     <loc>https://sharerdiary.com/about/index.html</loc>
     
     <lastmod>2019-10-17T02:37:20.575Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sharerdiary.com/ebook/index.html</loc>
-    
-    <lastmod>2019-10-17T02:15:07.465Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sharerdiary.com/movies/index.html</loc>
-    
-    <lastmod>2019-10-17T02:14:52.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sharerdiary.com/music/index.html</loc>
-    
-    <lastmod>2019-10-17T02:14:35.638Z</lastmod>
     
   </url>
   
