@@ -5,9 +5,9 @@
   <subtitle>爱生活，爱分享！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://sharerdiary.com/"/>
   <updated>2019-10-16T14:22:06.712Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://sharerdiary.com/</id>
   
   <author>
     <name>MrYZJ</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>【第二期福利】 免费在线视频</title>
-    <link href="http://yoursite.com/undefined/db3c2a00.html"/>
-    <id>http://yoursite.com/undefined/db3c2a00.html</id>
+    <link href="https://sharerdiary.com/undefined/db3c2a00.html"/>
+    <id>https://sharerdiary.com/undefined/db3c2a00.html</id>
     <published>2019-10-16T12:26:00.000Z</published>
     <updated>2019-10-16T14:22:06.712Z</updated>
     
@@ -35,19 +35,19 @@
     
     </summary>
     
-      <category term="福利" scheme="http://yoursite.com/categories/%E7%A6%8F%E5%88%A9/"/>
+      <category term="福利" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/"/>
     
     
-      <category term="福利" scheme="http://yoursite.com/tags/%E7%A6%8F%E5%88%A9/"/>
+      <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
-      <category term="视频" scheme="http://yoursite.com/tags/%E8%A7%86%E9%A2%91/"/>
+      <category term="视频" scheme="https://sharerdiary.com/tags/%E8%A7%86%E9%A2%91/"/>
     
   </entry>
   
   <entry>
     <title>欢迎来稿</title>
-    <link href="http://yoursite.com/undefined/fcdefbb0.html"/>
-    <id>http://yoursite.com/undefined/fcdefbb0.html</id>
+    <link href="https://sharerdiary.com/undefined/fcdefbb0.html"/>
+    <id>https://sharerdiary.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
     <updated>2019-10-17T07:01:14.459Z</updated>
     
@@ -63,19 +63,19 @@
     
     </summary>
     
-      <category term="告示" scheme="http://yoursite.com/categories/%E5%91%8A%E7%A4%BA/"/>
+      <category term="告示" scheme="https://sharerdiary.com/categories/%E5%91%8A%E7%A4%BA/"/>
     
     
-      <category term="告示" scheme="http://yoursite.com/tags/%E5%91%8A%E7%A4%BA/"/>
+      <category term="告示" scheme="https://sharerdiary.com/tags/%E5%91%8A%E7%A4%BA/"/>
     
-      <category term="投稿" scheme="http://yoursite.com/tags/%E6%8A%95%E7%A8%BF/"/>
+      <category term="投稿" scheme="https://sharerdiary.com/tags/%E6%8A%95%E7%A8%BF/"/>
     
   </entry>
   
   <entry>
     <title>【第一期福利】 免费音乐</title>
-    <link href="http://yoursite.com/undefined/fd7f686e.html"/>
-    <id>http://yoursite.com/undefined/fd7f686e.html</id>
+    <link href="https://sharerdiary.com/undefined/fd7f686e.html"/>
+    <id>https://sharerdiary.com/undefined/fd7f686e.html</id>
     <published>2019-10-15T15:25:00.000Z</published>
     <updated>2019-10-16T14:22:31.103Z</updated>
     
@@ -91,19 +91,19 @@
     
     </summary>
     
-      <category term="福利" scheme="http://yoursite.com/categories/%E7%A6%8F%E5%88%A9/"/>
+      <category term="福利" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/"/>
     
     
-      <category term="福利" scheme="http://yoursite.com/tags/%E7%A6%8F%E5%88%A9/"/>
+      <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
-      <category term="音乐" scheme="http://yoursite.com/tags/%E9%9F%B3%E4%B9%90/"/>
+      <category term="音乐" scheme="https://sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
   <entry>
     <title>ExoPlayer详解——高级主题（官方文档）</title>
-    <link href="http://yoursite.com/undefined/23d9b12d.html"/>
-    <id>http://yoursite.com/undefined/23d9b12d.html</id>
+    <link href="https://sharerdiary.com/undefined/23d9b12d.html"/>
+    <id>https://sharerdiary.com/undefined/23d9b12d.html</id>
     <published>2019-10-15T14:49:02.000Z</published>
     <updated>2019-10-17T07:02:37.042Z</updated>
     
@@ -119,21 +119,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
   </entry>
   
   <entry>
     <title>ExoPlayer详解——媒体类型（官方文档）</title>
-    <link href="http://yoursite.com/undefined/92fbeb27.html"/>
-    <id>http://yoursite.com/undefined/92fbeb27.html</id>
+    <link href="https://sharerdiary.com/undefined/92fbeb27.html"/>
+    <id>https://sharerdiary.com/undefined/92fbeb27.html</id>
     <published>2019-10-15T14:49:01.000Z</published>
     <updated>2019-10-17T07:02:22.659Z</updated>
     
@@ -149,21 +149,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
   </entry>
   
   <entry>
     <title>ExoPlayer详解——入门（官方文档）</title>
-    <link href="http://yoursite.com/undefined/95493443.html"/>
-    <id>http://yoursite.com/undefined/95493443.html</id>
+    <link href="https://sharerdiary.com/undefined/95493443.html"/>
+    <id>https://sharerdiary.com/undefined/95493443.html</id>
     <published>2019-10-15T14:49:00.000Z</published>
     <updated>2019-10-17T07:02:54.043Z</updated>
     
@@ -180,21 +180,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
     
-      <category term="ExoPlayer" scheme="http://yoursite.com/tags/ExoPlayer/"/>
+      <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
   </entry>
   
   <entry>
     <title>模仿微信右上角弹出的菜单</title>
-    <link href="http://yoursite.com/undefined/84ab7afd.html"/>
-    <id>http://yoursite.com/undefined/84ab7afd.html</id>
+    <link href="https://sharerdiary.com/undefined/84ab7afd.html"/>
+    <id>https://sharerdiary.com/undefined/84ab7afd.html</id>
     <published>2019-10-15T14:48:00.000Z</published>
     <updated>2019-10-17T07:03:28.095Z</updated>
     
@@ -213,21 +213,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
     
-      <category term="菜单" scheme="http://yoursite.com/tags/%E8%8F%9C%E5%8D%95/"/>
+      <category term="菜单" scheme="https://sharerdiary.com/tags/%E8%8F%9C%E5%8D%95/"/>
     
-      <category term="微信" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="https://sharerdiary.com/tags/%E5%BE%AE%E4%BF%A1/"/>
     
   </entry>
   
   <entry>
     <title>【转】博客开源</title>
-    <link href="http://yoursite.com/undefined/e3e08109.html"/>
-    <id>http://yoursite.com/undefined/e3e08109.html</id>
+    <link href="https://sharerdiary.com/undefined/e3e08109.html"/>
+    <id>https://sharerdiary.com/undefined/e3e08109.html</id>
     <published>2019-10-15T12:41:03.000Z</published>
     <updated>2019-10-16T08:06:41.429Z</updated>
     
@@ -243,14 +243,14 @@
     
     </summary>
     
-      <category term="软件安装与配置" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+      <category term="软件安装与配置" scheme="https://sharerdiary.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://sharerdiary.com/tags/Hexo/"/>
     
-      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+      <category term="Github" scheme="https://sharerdiary.com/tags/Github/"/>
     
-      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://sharerdiary.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
