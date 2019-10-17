@@ -583,7 +583,15 @@
 
 </header>
 
-        <div class="bg-cover pd-header about-cover">
+        <!--MrYZJ modify 2019.10.17-->
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+</style>
+
+<div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -619,7 +627,40 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
 <main class="content">
-
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+			<div class="card">
+				<div class="card-content">
+					<div class="card-content article-card-content">
+						<div class="title center-align" data-aos="zoom-in-up">
+							<i class="fa fa-book"></i>&nbsp;&nbsp;免费电子书
+						</div>
+						<div id="articleContent" data-aos="fade-up">
+							<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
 </main>
 
         <footer class="page-footer bg-color">
