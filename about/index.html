@@ -918,7 +918,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Android开发","value":4},{"name":"软件安装与配置","value":1},{"name":"福利","value":2},{"name":"ExoPlayer","value":3},{"name":"告示","value":1}],
+                data: [{"name":"软件安装与配置","value":1},{"name":"Android开发","value":4},{"name":"福利","value":2},{"name":"ExoPlayer","value":3},{"name":"告示","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -942,7 +942,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Android","ExoPlayer","福利","Hexo","Github","博客","视频","音乐","告示","投稿"]
+                data: ["Android","ExoPlayer","福利","Hexo","Github","博客","视频","音乐","菜单","微信"]
             }
         ],
         yAxis: [
@@ -1167,6 +1167,23 @@ $(function () {
             })
         </script>
 
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+		 
+			<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+		
+
         <!-- 鼠标点击烟花爆炸效果   -->
         
 
@@ -1197,23 +1214,6 @@ $(function () {
             }
             </script>
         
-		
-		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
-		 
-			<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
-<!-- weather_plugin -->
-<script type="text/javascript">
-	WIDGET = {FID: '5z352kSocY'}
-</script>
-<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
-<script type="text/javascript"> //只在桌面版网页启用特效 
-	var windowWidth = $(window).width(); 
-	if (windowWidth > 768) {
-		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
-	}
- </script>
- 
-		
 
     <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
