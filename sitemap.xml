@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/archives/index.html</loc>
+    
+    <lastmod>2019-10-17T01:58:53.364Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/ebook/index.html</loc>
+    
+    <lastmod>2019-10-17T01:58:42.775Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/music/index.html</loc>
+    
+    <lastmod>2019-10-17T01:58:16.037Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/index.html</loc>
+    
+    <lastmod>2019-10-17T01:58:00.670Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/welfare/movies/index.html</loc>
+    
+    <lastmod>2019-10-17T01:57:41.060Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/undefined/fd7f686e.html</loc>
     
     <lastmod>2019-10-16T14:22:31.103Z</lastmod>
@@ -51,37 +86,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/welfare/music/index.html</loc>
-    
-    <lastmod>2019-10-16T12:22:00.645Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/welfare/movies/index.html</loc>
-    
-    <lastmod>2019-10-16T12:16:33.853Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/AV/index.html</loc>
     
     <lastmod>2019-10-16T11:58:21.631Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/welfare/ebook/index.html</loc>
-    
-    <lastmod>2019-10-16T11:20:37.198Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/welfare/index.html</loc>
-    
-    <lastmod>2019-10-16T10:49:27.724Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/undefined/e3e08109.html</loc>
     
     <lastmod>2019-10-16T08:06:41.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/archives/index.html</loc>
-    
-    <lastmod>2019-10-16T02:01:40.592Z</lastmod>
     
   </url>
   
@@ -149,14 +149,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%873/index.html</loc>
+    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%874/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%874/index.html</loc>
+    <loc>http://yoursite.com/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%873/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     
