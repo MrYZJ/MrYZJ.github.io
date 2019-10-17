@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-    <!-- shw2018 洪卫  modify 2019.08.15-->
+    <!-- modify 2019.08.15-->
 
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="关于我, 爱分享">
+    <meta name="keywords" content="关于本站, 爱分享">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="关于我 | 爱分享">
+    <meta name="description" content="关于本站 | 爱分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于我 | 爱分享</title>
+    <title>关于本站 | 爱分享</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -583,7 +583,7 @@
 
 </header>
 
-        <!-- shw2018 洪卫  modify 2019.08.15-->
+        <!--modify 2019.08.15-->
 <style type="text/css">
     /* don't remove. */
     .about-cover {
@@ -601,7 +601,7 @@
                     爱生活，爱分享！
                  -->
                 
-                    关于我
+                    关于本站
                 
             </div>
 
@@ -903,7 +903,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"软件安装与配置","value":1},{"name":"Android开发","value":4},{"name":"福利","value":2},{"name":"ExoPlayer","value":3},{"name":"告示","value":1}],
+                data: [{"name":"福利","value":2},{"name":"软件安装与配置","value":1},{"name":"告示","value":1},{"name":"Android开发","value":4},{"name":"ExoPlayer","value":3}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -927,7 +927,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Android","ExoPlayer","福利","Hexo","Github","博客","音乐","菜单","微信","告示"]
+                data: ["Android","ExoPlayer","福利","音乐","Hexo","Github","博客","视频","告示","投稿"]
             }
         ],
         yAxis: [
@@ -984,7 +984,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             Copyright&copy; 2019 Ye Zijie. All Rights Reserved. 
 
             <br>
-            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <span id="sitetime"></span> <span class="my-face">  ღゝ◡╹)ノ♡</span>
             <br>
 
             
@@ -1146,7 +1146,7 @@ $(function () {
             var OriginTitile = document.title,
                 st;
             document.addEventListener("visibilitychange", function () {
-                document.hidden ? (document.title = "爱分享", clearTimeout(st)) : (document.title =
+                document.hidden ? (document.title = "爱生活，爱分享", clearTimeout(st)) : (document.title =
                     "爱分享", st = setTimeout(function () {
                         document.title = OriginTitile
                     }, 3e3))
@@ -1183,6 +1183,23 @@ $(function () {
             }
             </script>
         
+		
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+		 
+			<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+		
 
     <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
