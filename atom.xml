@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sharerdiary.com/"/>
-  <updated>2019-10-16T14:22:06.712Z</updated>
+  <updated>2019-10-18T02:36:18.527Z</updated>
   <id>https://sharerdiary.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sharerdiary.com/undefined/db3c2a00.html"/>
     <id>https://sharerdiary.com/undefined/db3c2a00.html</id>
     <published>2019-10-16T12:26:00.000Z</published>
-    <updated>2019-10-16T14:22:06.712Z</updated>
+    <updated>2019-10-18T02:36:18.527Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;免费在线视&quot;&gt;&lt;a href=&quot;#免费在线视&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;免费在线视&quot;&gt;&lt;a href=&quot;#免费在线视&quot; class=&quot;headerlink&quot;
         
       
     
@@ -37,8 +37,12 @@
     
       <category term="福利" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/"/>
     
+      <category term="每日分享" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
     
       <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
+    
+      <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
       <category term="视频" scheme="https://sharerdiary.com/tags/%E8%A7%86%E9%A2%91/"/>
     
@@ -49,7 +53,7 @@
     <link href="https://sharerdiary.com/undefined/fcdefbb0.html"/>
     <id>https://sharerdiary.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
-    <updated>2019-10-17T07:01:14.459Z</updated>
+    <updated>2019-10-18T02:29:03.203Z</updated>
     
     <summary type="html">
     
@@ -77,7 +81,7 @@
     <link href="https://sharerdiary.com/undefined/fd7f686e.html"/>
     <id>https://sharerdiary.com/undefined/fd7f686e.html</id>
     <published>2019-10-15T15:25:00.000Z</published>
-    <updated>2019-10-16T14:22:31.103Z</updated>
+    <updated>2019-10-18T02:36:29.405Z</updated>
     
     <summary type="html">
     
@@ -85,7 +89,7 @@
       
         
         
-          &lt;h1 id=&quot;免费音乐大全&quot;&gt;&lt;a href=&quot;#免费音乐大全&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;免费音乐大全&quot;&gt;&lt;a href=&quot;#免费音乐大全&quot; class=&quot;headerlink&quot;
         
       
     
@@ -93,10 +97,14 @@
     
       <category term="福利" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/"/>
     
+      <category term="每日分享" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
     
       <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
       <category term="音乐" scheme="https://sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
