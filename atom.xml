@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sharerdiary.com/"/>
-  <updated>2019-10-18T02:44:20.107Z</updated>
+  <updated>2019-10-18T14:47:59.333Z</updated>
   <id>https://sharerdiary.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【第二期福利】 免费在线视频</title>
+    <title>【每日分享】 免费在线视频</title>
     <link href="https://sharerdiary.com/undefined/db3c2a00.html"/>
     <id>https://sharerdiary.com/undefined/db3c2a00.html</id>
     <published>2019-10-16T12:26:00.000Z</published>
-    <updated>2019-10-18T02:44:20.107Z</updated>
+    <updated>2019-10-18T14:47:59.333Z</updated>
     
     <summary type="html">
     
@@ -35,16 +35,14 @@
     
     </summary>
     
-      <category term="福利" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/"/>
-    
-      <category term="每日分享" scheme="https://sharerdiary.com/categories/%E7%A6%8F%E5%88%A9/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+      <category term="每日分享" scheme="https://sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
     
       <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
-      <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
-    
       <category term="视频" scheme="https://sharerdiary.com/tags/%E8%A7%86%E9%A2%91/"/>
+    
+      <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
@@ -53,7 +51,7 @@
     <link href="https://sharerdiary.com/undefined/fcdefbb0.html"/>
     <id>https://sharerdiary.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
-    <updated>2019-10-18T02:29:03.203Z</updated>
+    <updated>2019-10-18T17:37:56.815Z</updated>
     
     <summary type="html">
     
@@ -77,11 +75,41 @@
   </entry>
   
   <entry>
-    <title>【第一期福利】 免费音乐</title>
+    <title>【每日分享】 免费音乐</title>
     <link href="https://sharerdiary.com/undefined/fd7f686e.html"/>
     <id>https://sharerdiary.com/undefined/fd7f686e.html</id>
     <published>2019-10-15T15:25:00.000Z</published>
-    <updated>2019-10-18T02:44:10.192Z</updated>
+    <updated>2019-10-18T14:47:50.644Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;免费音乐大全&quot;&gt;&lt;a href=&quot;#免费音乐大全&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="每日分享" scheme="https://sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
+    
+      <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="音乐" scheme="https://sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【每日分享】 免费音乐</title>
+    <link href="https://sharerdiary.com/undefined/fd7f686e.html"/>
+    <id>https://sharerdiary.com/undefined/fd7f686e.html</id>
+    <published>2019-10-15T15:25:00.000Z</published>
+    <updated>2019-10-18T14:51:34.928Z</updated>
     
     <summary type="html">
     
@@ -102,9 +130,9 @@
     
       <category term="福利" scheme="https://sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
-      <category term="音乐" scheme="https://sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
-    
       <category term="每日分享" scheme="https://sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="音乐" scheme="https://sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
@@ -113,7 +141,7 @@
     <link href="https://sharerdiary.com/undefined/23d9b12d.html"/>
     <id>https://sharerdiary.com/undefined/23d9b12d.html</id>
     <published>2019-10-15T14:49:02.000Z</published>
-    <updated>2019-10-17T07:02:37.042Z</updated>
+    <updated>2019-10-18T14:48:37.894Z</updated>
     
     <summary type="html">
     
@@ -127,12 +155,12 @@
     
     </summary>
     
-      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="Android" scheme="https://sharerdiary.com/categories/Android/"/>
     
     
       <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
+    
+      <category term="播放器" scheme="https://sharerdiary.com/tags/%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
       <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
@@ -143,7 +171,7 @@
     <link href="https://sharerdiary.com/undefined/92fbeb27.html"/>
     <id>https://sharerdiary.com/undefined/92fbeb27.html</id>
     <published>2019-10-15T14:49:01.000Z</published>
-    <updated>2019-10-17T07:02:22.659Z</updated>
+    <updated>2019-10-18T14:48:50.842Z</updated>
     
     <summary type="html">
     
@@ -157,12 +185,12 @@
     
     </summary>
     
-      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="Android" scheme="https://sharerdiary.com/categories/Android/"/>
     
     
       <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
+    
+      <category term="播放器" scheme="https://sharerdiary.com/tags/%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
       <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
@@ -173,7 +201,7 @@
     <link href="https://sharerdiary.com/undefined/95493443.html"/>
     <id>https://sharerdiary.com/undefined/95493443.html</id>
     <published>2019-10-15T14:49:00.000Z</published>
-    <updated>2019-10-17T07:02:54.043Z</updated>
+    <updated>2019-10-18T14:49:03.696Z</updated>
     
     <summary type="html">
     
@@ -188,12 +216,12 @@
     
     </summary>
     
-      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="ExoPlayer" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/ExoPlayer/"/>
+      <category term="Android" scheme="https://sharerdiary.com/categories/Android/"/>
     
     
       <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
+    
+      <category term="播放器" scheme="https://sharerdiary.com/tags/%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
       <category term="ExoPlayer" scheme="https://sharerdiary.com/tags/ExoPlayer/"/>
     
@@ -204,7 +232,7 @@
     <link href="https://sharerdiary.com/undefined/84ab7afd.html"/>
     <id>https://sharerdiary.com/undefined/84ab7afd.html</id>
     <published>2019-10-15T14:48:00.000Z</published>
-    <updated>2019-10-17T07:03:28.095Z</updated>
+    <updated>2019-10-18T14:49:33.899Z</updated>
     
     <summary type="html">
     
@@ -221,7 +249,7 @@
     
     </summary>
     
-      <category term="Android开发" scheme="https://sharerdiary.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android" scheme="https://sharerdiary.com/categories/Android/"/>
     
     
       <category term="Android" scheme="https://sharerdiary.com/tags/Android/"/>
@@ -229,6 +257,8 @@
       <category term="菜单" scheme="https://sharerdiary.com/tags/%E8%8F%9C%E5%8D%95/"/>
     
       <category term="微信" scheme="https://sharerdiary.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="实例" scheme="https://sharerdiary.com/tags/%E5%AE%9E%E4%BE%8B/"/>
     
   </entry>
   
