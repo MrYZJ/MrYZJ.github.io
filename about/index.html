@@ -69,8 +69,9 @@
     <body>
 
         <header class="navbar-fixed">
-	
-        <!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+    <nav id="headNav" class="bg-color nav-transparent">
+		
+			<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
  
 	<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
 <!-- weather_plugin -->
@@ -87,8 +88,7 @@
  
 
 
-    
-    <nav id="headNav" class="bg-color nav-transparent">
+		
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
@@ -891,7 +891,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"软件安装与配置","value":1},{"name":"Android","value":4},{"name":"每日分享","value":2},{"name":"告示","value":1}],
+                data: [{"name":"软件安装与配置","value":1},{"name":"每日分享","value":2},{"name":"Android","value":4},{"name":"告示","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -915,7 +915,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Android","播放器","ExoPlayer","福利","每日分享","Hexo","Github","博客","音乐","视频"]
+                data: ["Android","播放器","ExoPlayer","福利","每日分享","Hexo","Github","博客","视频","音乐"]
             }
         ],
         yAxis: [
