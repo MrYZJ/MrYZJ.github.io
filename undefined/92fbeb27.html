@@ -867,7 +867,7 @@
 <h3 id="（1）、自定义服务器交互"><a href="#（1）、自定义服务器交互" class="headerlink" title="（1）、自定义服务器交互"></a>（1）、自定义服务器交互</h3><p>某些应用可能希望拦截HTTP请求和响应。您可能希望注入自定义请求标头，读取服务器的响应标头，修改请求的URI等。例如，您的应用程序可以通过在请求媒体段时将标记作为标头注入来验证自身。您可以通过将自定义<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/HttpDataSource.html" target="_blank" rel="noopener">HttpDataSources</a>注入到你创建的<code>DashMediaSource</code>中来实现这些行为。以下代码段显示了标头注入的示例：</p>
 <pre class="line-numbers language-java"><code class="language-java">    DashMediaSource dashMediaSource <span class="token operator">=</span>
         <span class="token keyword">new</span> <span class="token class-name">DashMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span>
-                <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
                   HttpDataSource dataSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultHttpDataSource</span><span class="token punctuation">(</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
                   <span class="token comment" spellcheck="true">// Set a custom authentication request header.</span>
                   dataSource<span class="token punctuation">.</span><span class="token function">setRequestProperty</span><span class="token punctuation">(</span><span class="token string">"Header"</span><span class="token punctuation">,</span> <span class="token string">"Value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1018,7 +1018,7 @@
 <h3 id="（2）、自定义服务器交互"><a href="#（2）、自定义服务器交互" class="headerlink" title="（2）、自定义服务器交互"></a>（2）、自定义服务器交互</h3><p>某些应用可能希望拦截HTTP请求和响应。您可能希望注入自定义请求标头，读取服务器的响应标头，修改请求的URI等。例如，您的应用程序可以通过在访问媒体段的URI中注入自定义标记来验证自身。您可以通过将自定义<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/HttpDataSource.html" target="_blank" rel="noopener">HttpDataSources</a>注入到创建的<code>HlsMediaSource</code>中来实现这些行为。以下代码段显示了请求标头注入的示例：</p>
 <pre class="line-numbers language-java"><code class="language-java">    HlsMediaSource hlsMediaSource <span class="token operator">=</span>
         <span class="token keyword">new</span> <span class="token class-name">HlsMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span>
-                dataType <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                dataType <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
                   HttpDataSource dataSource <span class="token operator">=</span>
                       <span class="token keyword">new</span> <span class="token class-name">DefaultHttpDataSource</span><span class="token punctuation">(</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
                   <span class="token keyword">if</span> <span class="token punctuation">(</span>dataType <span class="token operator">==</span> C<span class="token punctuation">.</span>DATA_TYPE_MEDIA<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1160,7 +1160,7 @@
 <h3 id="（1）、自定义服务器交互-1"><a href="#（1）、自定义服务器交互-1" class="headerlink" title="（1）、自定义服务器交互"></a>（1）、自定义服务器交互</h3><p>某些应用可能希望拦截HTTP请求和响应。您可能希望注入自定义请求标头，读取服务器的响应标头，修改请求的URI等。例如，您的应用程序可以通过在访问媒体段的URI中注入自定义标记来验证自身。您可以通过将自定义<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/HttpDataSource.html" target="_blank" rel="noopener">HttpDataSources</a>注入到创建的<code>SsMediaSource</code>中来实现这些行为。以下代码段显示了请求标头注入的示例：</p>
 <pre class="line-numbers language-java"><code class="language-java">SsMediaSource ssMediaSource <span class="token operator">=</span>
     <span class="token keyword">new</span> <span class="token class-name">SsMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span>
-            <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
               HttpDataSource dataSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultHttpDataSource</span><span class="token punctuation">(</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
               <span class="token comment" spellcheck="true">// Set a custom authentication request header.</span>
               dataSource<span class="token punctuation">.</span><span class="token function">setRequestProperty</span><span class="token punctuation">(</span><span class="token string">"Header"</span><span class="token punctuation">,</span> <span class="token string">"Value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1313,7 +1313,7 @@ ProgressiveMediaSource progressiveMediaSource <span class="token operator">=</sp
 <h3 id="（3）、自定义服务器交互"><a href="#（3）、自定义服务器交互" class="headerlink" title="（3）、自定义服务器交互"></a>（3）、自定义服务器交互</h3><p>某些应用可能希望拦截HTTP请求和响应。您可能希望注入自定义请求标头，读取服务器的响应标头，修改请求的URI等。例如，您的应用程序可以通过在请求媒体段时将标记作为标头注入来验证自身。您可以通过将自定义<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/HttpDataSource.html" target="_blank" rel="noopener">HttpDataSources</a>注入到<code>ProgressiveMediaSourcecreate</code>中来实现这些行为。以下代码段显示了标头注入的示例：</p>
 <pre class="line-numbers language-java"><code class="language-java">ProgressiveMediaSource progressiveMediaSource <span class="token operator">=</span>
     <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span>
-            <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
               HttpDataSource dataSource <span class="token operator">=</span>
                   <span class="token keyword">new</span> <span class="token class-name">DefaultHttpDataSource</span><span class="token punctuation">(</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
               <span class="token comment" spellcheck="true">// Set a custom authentication request header.</span>
@@ -2127,7 +2127,7 @@ ProgressiveMediaSource progressiveMediaSource <span class="token operator">=</sp
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">22k</span> 字
+                <span class="white-color">21.6k</span> 字
             
 
             
