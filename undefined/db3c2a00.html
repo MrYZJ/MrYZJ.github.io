@@ -83,6 +83,25 @@
     <body>
 
         <header class="navbar-fixed">
+	
+        <!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+ 
+	<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+
+
+    
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -690,12 +709,12 @@
                                 <span class="chip bg-color">福利</span>
                             </a>
                         
-                            <a href="/tags/视频/" target="_blank">
-                                <span class="chip bg-color">视频</span>
-                            </a>
-                        
                             <a href="/tags/每日分享/" target="_blank">
                                 <span class="chip bg-color">每日分享</span>
+                            </a>
+                        
+                            <a href="/tags/视频/" target="_blank">
+                                <span class="chip bg-color">视频</span>
                             </a>
                         
                     </div>
@@ -1403,12 +1422,12 @@
                         <span class="chip bg-color">福利</span>
                     </a>
                     
-                    <a href="/tags/视频/" target="_blank">
-                        <span class="chip bg-color">视频</span>
-                    </a>
-                    
                     <a href="/tags/每日分享/" target="_blank">
                         <span class="chip bg-color">每日分享</span>
+                    </a>
+                    
+                    <a href="/tags/视频/" target="_blank">
+                        <span class="chip bg-color">视频</span>
                     </a>
                     
                 </div>
@@ -1504,7 +1523,7 @@
             + '来源: 分享客<br />'
             + '作者: MrYZJ<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处：分享客（https://sharerdiary.com/）。';
 
         selection.selectAllChildren(newdiv);
         window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
