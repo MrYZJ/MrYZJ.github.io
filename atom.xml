@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.sharerdiary.com/"/>
-  <updated>2019-10-20T04:20:46.360Z</updated>
+  <updated>2019-10-20T04:28:22.144Z</updated>
   <id>https://www.sharerdiary.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.sharerdiary.com/undefined/6499d1c7.html"/>
     <id>https://www.sharerdiary.com/undefined/6499d1c7.html</id>
     <published>2019-10-20T04:03:43.000Z</published>
-    <updated>2019-10-20T04:20:46.360Z</updated>
+    <updated>2019-10-20T04:28:22.144Z</updated>
     
     <summary type="html">
     
@@ -38,8 +38,6 @@
       <category term="实用工具" scheme="https://www.sharerdiary.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
-    
       <category term="网络图" scheme="https://www.sharerdiary.com/tags/%E7%BD%91%E7%BB%9C%E5%9B%BE/"/>
     
       <category term="组织结构图" scheme="https://www.sharerdiary.com/tags/%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%9B%BE/"/>
@@ -53,6 +51,8 @@
       <category term="ERD" scheme="https://www.sharerdiary.com/tags/ERD/"/>
     
       <category term="UI" scheme="https://www.sharerdiary.com/tags/UI/"/>
+    
+      <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
@@ -78,13 +78,13 @@
       <category term="实用工具" scheme="https://www.sharerdiary.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
     
+      <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
+    
       <category term="google服务" scheme="https://www.sharerdiary.com/tags/google%E6%9C%8D%E5%8A%A1/"/>
     
       <category term="实用工具" scheme="https://www.sharerdiary.com/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
       <category term="google搜索" scheme="https://www.sharerdiary.com/tags/google%E6%90%9C%E7%B4%A2/"/>
-    
-      <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
@@ -93,7 +93,7 @@
     <link href="https://www.sharerdiary.com/undefined/db3c2a00.html"/>
     <id>https://www.sharerdiary.com/undefined/db3c2a00.html</id>
     <published>2019-10-16T12:26:00.000Z</published>
-    <updated>2019-10-19T03:01:16.488Z</updated>
+    <updated>2019-10-20T04:25:51.984Z</updated>
     
     <summary type="html">
     
@@ -116,6 +116,12 @@
     
       <category term="视频" scheme="https://www.sharerdiary.com/tags/%E8%A7%86%E9%A2%91/"/>
     
+      <category term="腾讯视频" scheme="https://www.sharerdiary.com/tags/%E8%85%BE%E8%AE%AF%E8%A7%86%E9%A2%91/"/>
+    
+      <category term="爱奇艺" scheme="https://www.sharerdiary.com/tags/%E7%88%B1%E5%A5%87%E8%89%BA/"/>
+    
+      <category term="优酷" scheme="https://www.sharerdiary.com/tags/%E4%BC%98%E9%85%B7/"/>
+    
   </entry>
   
   <entry>
@@ -123,7 +129,7 @@
     <link href="https://www.sharerdiary.com/undefined/fcdefbb0.html"/>
     <id>https://www.sharerdiary.com/undefined/fcdefbb0.html</id>
     <published>2019-10-16T01:30:34.000Z</published>
-    <updated>2019-10-19T07:10:46.734Z</updated>
+    <updated>2019-10-20T04:28:42.602Z</updated>
     
     <summary type="html">
     
@@ -144,6 +150,8 @@
     
       <category term="投稿" scheme="https://www.sharerdiary.com/tags/%E6%8A%95%E7%A8%BF/"/>
     
+      <category term="分享" scheme="https://www.sharerdiary.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
   </entry>
   
   <entry>
@@ -151,7 +159,7 @@
     <link href="https://www.sharerdiary.com/undefined/fd7f686e.html"/>
     <id>https://www.sharerdiary.com/undefined/fd7f686e.html</id>
     <published>2019-10-15T15:25:00.000Z</published>
-    <updated>2019-10-19T03:01:33.945Z</updated>
+    <updated>2019-10-20T04:25:15.321Z</updated>
     
     <summary type="html">
     
@@ -171,6 +179,8 @@
       <category term="福利" scheme="https://www.sharerdiary.com/tags/%E7%A6%8F%E5%88%A9/"/>
     
       <category term="音乐" scheme="https://www.sharerdiary.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="网易云" scheme="https://www.sharerdiary.com/tags/%E7%BD%91%E6%98%93%E4%BA%91/"/>
     
       <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
@@ -272,7 +282,7 @@
     <link href="https://www.sharerdiary.com/undefined/84ab7afd.html"/>
     <id>https://www.sharerdiary.com/undefined/84ab7afd.html</id>
     <published>2019-10-15T14:48:00.000Z</published>
-    <updated>2019-10-19T02:47:42.301Z</updated>
+    <updated>2019-10-20T04:29:10.248Z</updated>
     
     <summary type="html">
     
@@ -299,6 +309,8 @@
       <category term="微信" scheme="https://www.sharerdiary.com/tags/%E5%BE%AE%E4%BF%A1/"/>
     
       <category term="实例" scheme="https://www.sharerdiary.com/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
+      <category term="menu" scheme="https://www.sharerdiary.com/tags/menu/"/>
     
   </entry>
   
