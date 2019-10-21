@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/undefined/unnamed.html"/>
+      <url>/undefined/unnamed.html</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【每日分享】比visio简单易用的制图工具</title>
       <link href="/undefined/unnamed.html"/>
       <url>/undefined/unnamed.html</url>
@@ -101,66 +114,6 @@
             <tag> 爱奇艺 </tag>
             
             <tag> 优酷 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>欢迎来稿</title>
-      <link href="/undefined/201910160930.html"/>
-      <url>/undefined/201910160930.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="来稿告示"><a href="#来稿告示" class="headerlink" title=" 来稿告示 "></a><center> 来稿告示 </center></h1><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/articles/%E6%AC%A2%E8%BF%8E%E6%8A%95%E7%A8%BF.jpg" alt="欢迎投稿"></p><h4 id="个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。"><a href="#个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。" class="headerlink" title="个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。"></a>个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。</h4><h2 id="分享目的"><a href="#分享目的" class="headerlink" title="分享目的"></a>分享目的</h2><hr><h4 id="1、共建分享环境；"><a href="#1、共建分享环境；" class="headerlink" title="1、共建分享环境；"></a>1、共建分享环境；</h4><h4 id="2、为广大的网友提供一个分享平台；"><a href="#2、为广大的网友提供一个分享平台；" class="headerlink" title="2、为广大的网友提供一个分享平台；"></a>2、为广大的网友提供一个分享平台；</h4><h4 id="3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！"><a href="#3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！" class="headerlink" title="3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！"></a>3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！</h4><h4 id="4、在分享过程中获得了沉淀、学习、与成长。"><a href="#4、在分享过程中获得了沉淀、学习、与成长。" class="headerlink" title="4、在分享过程中获得了沉淀、学习、与成长。"></a>4、在分享过程中获得了沉淀、学习、与成长。</h4><h2 id="来稿要求"><a href="#来稿要求" class="headerlink" title="来稿要求"></a>来稿要求</h2><hr><h4 id="1、不能违反国家法律法规；"><a href="#1、不能违反国家法律法规；" class="headerlink" title="1、不能违反国家法律法规；"></a>1、不能违反国家法律法规；</h4><h4 id="2、不能违反道德规范；"><a href="#2、不能违反道德规范；" class="headerlink" title="2、不能违反道德规范；"></a>2、不能违反道德规范；</h4><h4 id="3、附上自己的个人主页，博客地址；"><a href="#3、附上自己的个人主页，博客地址；" class="headerlink" title="3、附上自己的个人主页，博客地址；"></a>3、附上自己的个人主页，博客地址；</h4><h4 id="3、······（没有了，就这点要求）······"><a href="#3、······（没有了，就这点要求）······" class="headerlink" title="3、······（没有了，就这点要求）······"></a>3、······（没有了，就这点要求）······</h4><h2 id="来稿方式"><a href="#来稿方式" class="headerlink" title="来稿方式"></a>来稿方式</h2><hr><h4 id="首先编辑好markdown文件，然后"><a href="#首先编辑好markdown文件，然后" class="headerlink" title="首先编辑好markdown文件，然后"></a>首先编辑好markdown文件，然后</h4><h4 id="发送到：2297541744-qq-com"><a href="#发送到：2297541744-qq-com" class="headerlink" title="发送到：2297541744@qq.com"></a>发送到：<a href="mailto:2297541744@qq.com" target="_blank" rel="noopener">2297541744@qq.com</a></h4><h4 id="或者发送到-：mryzj0716-gmail-com"><a href="#或者发送到-：mryzj0716-gmail-com" class="headerlink" title="或者发送到 ：mryzj0716@gmail.com"></a>或者发送到 ：<a href="mailto:mryzj0716@gmail.com" target="_blank" rel="noopener">mryzj0716@gmail.com</a></h4><h4 id="站长审核通过后就会发布！感谢大家的来稿！"><a href="#站长审核通过后就会发布！感谢大家的来稿！" class="headerlink" title="站长审核通过后就会发布！感谢大家的来稿！"></a>站长审核通过后就会发布！感谢大家的来稿！</h4><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><h4 id="由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。"><a href="#由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。" class="headerlink" title="由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。"></a>由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。</h4><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 告示 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 告示 </tag>
-            
-            <tag> 投稿 </tag>
-            
-            <tag> 分享 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【每日分享】 免费音乐大全</title>
-      <link href="/undefined/201910152325.html"/>
-      <url>/undefined/201910152325.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="免费音乐大全"><a href="#免费音乐大全" class="headerlink" title="免费音乐大全"></a><center>免费音乐大全</center></h2><blockquote><p>墨灵音乐</p></blockquote><p><a href="https://music.mli.im/vip.music" target="_blank" rel="noopener">https://music.mli.im/vip.music</a></p><blockquote><p>仿网易云音乐</p></blockquote><p><a href="https://muxiv.net/sc/" target="_blank" rel="noopener">https://muxiv.net/sc/</a></p><h2 id="支持下载"><a href="#支持下载" class="headerlink" title="支持下载"></a><center>支持下载</center></h2><blockquote><p>下方网站基于<code>麦聪音乐搜索器</code>搭建的网站：支持十多种主流音乐平台搜索试听下载。</p></blockquote><ul><li><a href="http://music.uixsj.cn/" target="_blank" rel="noopener">http://music.uixsj.cn</a></li><li><a href="http://www.lxh5068.com/music" target="_blank" rel="noopener">http://www.lxh5068.com/music</a></li><li><a href="http://www.xieqian.vip/music" target="_blank" rel="noopener">http://www.xieqian.vip/music</a></li></ul><blockquote><p>下方网站基于 <code>mkonlineplayer</code> 搭建的在线音乐播放器，支持主流音乐平台搜索试听下载。</p></blockquote><ul><li><a href="https://music.postgraduate.top/" target="_blank" rel="noopener">https://music.postgraduate.top</a></li><li><a href="https://www.xcbkb.com/music" target="_blank" rel="noopener">https://www.xcbkb.com/music</a></li><li><a href="http://vip.xcsee.cn/music" target="_blank" rel="noopener">http://vip.xcsee.cn/music</a></li><li><a href="http://ayy.ayxhk.com/" target="_blank" rel="noopener">http://ayy.ayxhk.com</a></li><li><a href="http://vip.xcsee.cn/music" target="_blank" rel="noopener">http://vip.xcsee.cn/music</a></li><li><a href="http://tool.yiixue.com/Tools/mk_music" target="_blank" rel="noopener">http://tool.yiixue.com/Tools/mk_music</a></li></ul><blockquote><p>音乐免费下载：国外免费音乐下载神器，支持中文搜索，搜索速度快音乐全。</p></blockquote><p><a href="https://hao.su/1906/" target="_blank" rel="noopener">Youtube 音乐下载</a>、<a href="https://hao.su/2025/" target="_blank" rel="noopener">Youtube To mp3 Api</a></p><h2 id="支持试听"><a href="#支持试听" class="headerlink" title="支持试听"></a><center>支持试听</center></h2><blockquote><p>mmplayer 在线音乐播放器：ui 美观，支持网易音乐</p></blockquote><ul><li><a href="https://www.postgraduate.top/app.php/music" target="_blank" rel="noopener">https://www.postgraduate.top/app.php/music</a></li><li><a href="http://music.mtnhao.com/" target="_blank" rel="noopener">http://music.mtnhao.com/</a></li></ul><blockquote><p>摩声音乐搜索：搜索歌曲速度很快，支持网易云、QQ、虾米、酷狗、百度免费搜索试听下载。</p></blockquote><p><a href="http://moresound.tk/music/" target="_blank" rel="noopener">http://moresound.tk/music/</a></p><blockquote><p>解锁网易云音乐灰色链接</p></blockquote><p><a href="https://github.com/nondanee/UnblockNeteaseMusic" target="_blank" rel="noopener">https://github.com/nondanee/UnblockNeteaseMusic</a></p><hr><hr><h2 id="如果有更好的资源，欢迎大家在底下留言！"><a href="#如果有更好的资源，欢迎大家在底下留言！" class="headerlink" title="如果有更好的资源，欢迎大家在底下留言！"></a>如果有更好的资源，欢迎大家在底下留言！</h2><hr><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 每日分享 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 福利 </tag>
-            
-            <tag> 音乐 </tag>
-            
-            <tag> 网易云 </tag>
-            
-            <tag> 每日分享 </tag>
             
         </tags>
       
@@ -310,6 +263,35 @@
             <tag> Github </tag>
             
             <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>欢迎来稿</title>
+      <link href="/undefined/201910151230.html"/>
+      <url>/undefined/201910151230.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="来稿告示"><a href="#来稿告示" class="headerlink" title=" 来稿告示 "></a><center> 来稿告示 </center></h1><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/articles/%E6%AC%A2%E8%BF%8E%E6%8A%95%E7%A8%BF.jpg" alt="欢迎投稿"></p><h4 id="个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。"><a href="#个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。" class="headerlink" title="个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。"></a>个人的能力毕竟是有限的，为了能促进分享文化的传播，希望大家和我一起来做一个文化的生产者，造福广大网友，也造福自己。</h4><h2 id="分享目的"><a href="#分享目的" class="headerlink" title="分享目的"></a>分享目的</h2><hr><h4 id="1、共建分享环境；"><a href="#1、共建分享环境；" class="headerlink" title="1、共建分享环境；"></a>1、共建分享环境；</h4><h4 id="2、为广大的网友提供一个分享平台；"><a href="#2、为广大的网友提供一个分享平台；" class="headerlink" title="2、为广大的网友提供一个分享平台；"></a>2、为广大的网友提供一个分享平台；</h4><h4 id="3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！"><a href="#3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！" class="headerlink" title="3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！"></a>3、实现自己写的东西有人看，因而促进自己更努力去学习，越分享越快乐！</h4><h4 id="4、在分享过程中获得了沉淀、学习、与成长。"><a href="#4、在分享过程中获得了沉淀、学习、与成长。" class="headerlink" title="4、在分享过程中获得了沉淀、学习、与成长。"></a>4、在分享过程中获得了沉淀、学习、与成长。</h4><h2 id="来稿要求"><a href="#来稿要求" class="headerlink" title="来稿要求"></a>来稿要求</h2><hr><h4 id="1、不能违反国家法律法规；"><a href="#1、不能违反国家法律法规；" class="headerlink" title="1、不能违反国家法律法规；"></a>1、不能违反国家法律法规；</h4><h4 id="2、不能违反道德规范；"><a href="#2、不能违反道德规范；" class="headerlink" title="2、不能违反道德规范；"></a>2、不能违反道德规范；</h4><h4 id="3、附上自己的个人主页，博客地址；"><a href="#3、附上自己的个人主页，博客地址；" class="headerlink" title="3、附上自己的个人主页，博客地址；"></a>3、附上自己的个人主页，博客地址；</h4><h4 id="3、······（没有了，就这点要求）······"><a href="#3、······（没有了，就这点要求）······" class="headerlink" title="3、······（没有了，就这点要求）······"></a>3、······（没有了，就这点要求）······</h4><h2 id="来稿方式"><a href="#来稿方式" class="headerlink" title="来稿方式"></a>来稿方式</h2><hr><h4 id="首先编辑好markdown文件，然后"><a href="#首先编辑好markdown文件，然后" class="headerlink" title="首先编辑好markdown文件，然后"></a>首先编辑好markdown文件，然后</h4><h4 id="发送到：2297541744-qq-com"><a href="#发送到：2297541744-qq-com" class="headerlink" title="发送到：2297541744@qq.com"></a>发送到：<a href="mailto:2297541744@qq.com" target="_blank" rel="noopener">2297541744@qq.com</a></h4><h4 id="或者发送到-：mryzj0716-gmail-com"><a href="#或者发送到-：mryzj0716-gmail-com" class="headerlink" title="或者发送到 ：mryzj0716@gmail.com"></a>或者发送到 ：<a href="mailto:mryzj0716@gmail.com" target="_blank" rel="noopener">mryzj0716@gmail.com</a></h4><h4 id="站长审核通过后就会发布！感谢大家的来稿！"><a href="#站长审核通过后就会发布！感谢大家的来稿！" class="headerlink" title="站长审核通过后就会发布！感谢大家的来稿！"></a>站长审核通过后就会发布！感谢大家的来稿！</h4><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><h4 id="由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。"><a href="#由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。" class="headerlink" title="由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。"></a>由于这是非营利性的网站，所以没有稿费回馈大家，不过为了回报大家，分享的内容会附上来稿作者的主页、博客地址，以便能帮助到分享者自己主页博客的曝光。</h4><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 告示 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 告示 </tag>
+            
+            <tag> 投稿 </tag>
+            
+            <tag> 分享 </tag>
             
         </tags>
       
