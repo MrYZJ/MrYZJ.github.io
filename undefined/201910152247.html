@@ -1,0 +1,2326 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- modify 2019.08.15-->
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="ExoPlayer详解——入门（官方文档）, 分享刻 分享 分享为王 爱生活 爱分享 分享客 分享时刻 分享之家 资源 MrYZJ 学习 每日分享 干货 福利 免费 音乐 视频 文字 图片">
+    <meta name="baidu-site-verification" content="ceX1YT6eX2wz8PzG">
+    <meta name="google-site-verification" content="pwemkKIILfUcxAHlz6LLELlK-XwMpp_bvczv1r5o8VM">
+	<meta name="360-site-verification" content="cb766023cf5e490e8ee693c3349d094f">
+	<meta name="sogou_site_verification" content="1Ej3vFgvFR">
+    <meta name="description" content="一、ExoPlayer，你好
+简单用例入门ExoPlayer包括实现以下步骤：
+
+将 ExoPlayer 添加为项目的依赖项。
+创建一个 SimpleExoPlayer 实例。
+将播放器连接到视图（用于视频输出和用户输入）。
+准备 play">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ExoPlayer详解——入门（官方文档） | 分享客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?cbafa94838c42c173a37297f9a4a40fc";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+    
+    
+		<script>
+			(function(){
+				var bp = document.createElement('script');
+				var curProtocol = window.location.protocol.split(':')[0];
+				if (curProtocol === 'https') {
+					bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+				}
+				else {
+					bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+				}
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(bp, s);
+			})();
+		</script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">分享客</span>
+                </a>
+            </div>
+            
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/welfare" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>福利时刻</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>清单</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-envelope"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/reward" class="waves-effect waves-light">
+            
+            <i class="fa fa-rmb"></i>
+            
+            <span>打赏榜单</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/navi" class="waves-effect waves-light">
+            
+            <i class="fa fa-rocket"></i>
+            
+            <span>快捷导航</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="" class="waves-effect waves-light">
+            
+            <i class="fa fa-list"></i>
+            
+            <span>更多</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/welfare" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>福利时刻</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/music" >
+                    
+                      <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>免费音乐</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>免费视频</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/ebook" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>免费电子书</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-photo" style="margin-top: -20px;"></i>
+                    
+                    <span>免费图片</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fa-archive"></i>
+                
+                <span>清单</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/categories" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>分类</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-envelope"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/reward" class="waves-effect waves-light">
+              
+                <i class="fa fa-rmb"></i>
+              
+              <span>打赏榜单</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/navi" class="waves-effect waves-light">
+              
+                <i class="fa fa-rocket"></i>
+              
+              <span>快捷导航</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="" class="waves-effect waves-light">
+                
+                  <i class="fa fa-list"></i>
+                
+                <span>更多</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-address-book" style="margin-top: -20px;"></i>
+                    
+                    <span>友情链接</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user-circle-o" style="margin-top: -20px;"></i>
+                    
+                    <span>关于本站</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+	
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">
+			分享客
+		</div>
+        <div class="logo-desc">
+            
+				爱生活，爱分享！
+            
+        </div>
+		<div class="socialClass">
+			
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2297541744@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2297541744&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/MrYZJ0716" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+		</div>
+    </div>
+
+    
+   
+<!-- 支持二级菜单特性 -->
+	<ul class="menu-list mobile-menu-list">
+		
+			<li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+							<i class="fa fa-fw fa-home"  style="left: 2px; position: absolute;"></i>
+                        
+                        首页
+                    </a>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                        
+                            <i class="fa fa-fw fa-heart"  style="left: 2px; position: absolute;"></i>
+                        
+                        福利时刻
+                        <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+					<ul>
+						
+							<li> 
+								<a href="/music" >
+									
+										<i class="fa fa-music" style="left: 15px; position: absolute;"></i>
+									
+									<span>免费音乐</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/movies" >
+									
+										<i class="fa fa-film" style="left: 15px; position: absolute;"></i>
+									
+									<span>免费视频</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/ebook" >
+									
+										<i class="fa fa-book" style="left: 15px; position: absolute;"></i>
+									
+									<span>免费电子书</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/galleries" >
+									
+										<i class="fa fa-photo" style="left: 15px; position: absolute;"></i>
+									
+									<span>免费图片</span>
+								</a>
+							</li>
+						 
+					</ul>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                        
+                            <i class="fa fa-fw fa-archive"  style="left: 2px; position: absolute;"></i>
+                        
+                        清单
+                        <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+					<ul>
+						
+							<li> 
+								<a href="/tags" >
+									
+										<i class="fa fa-tags" style="left: 15px; position: absolute;"></i>
+									
+									<span>标签</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/categories" >
+									
+										<i class="fa fa-bookmark" style="left: 15px; position: absolute;"></i>
+									
+									<span>分类</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/archives" >
+									
+										<i class="fa fa-archive" style="left: 15px; position: absolute;"></i>
+									
+									<span>归档</span>
+								</a>
+							</li>
+						 
+					</ul>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+							<i class="fa fa-fw fa-envelope"  style="left: 2px; position: absolute;"></i>
+                        
+                        留言板
+                    </a>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="/reward" class="waves-effect waves-light">
+                        
+							<i class="fa fa-fw fa-rmb"  style="left: 2px; position: absolute;"></i>
+                        
+                        打赏榜单
+                    </a>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="/navi" class="waves-effect waves-light">
+                        
+							<i class="fa fa-fw fa-rocket"  style="left: 2px; position: absolute;"></i>
+                        
+                        快捷导航
+                    </a>
+				
+			</li>
+		
+			<li class="m-nav-item">
+                
+                    <a href="javascript:;">
+                        
+                            <i class="fa fa-fw fa-list"  style="left: 2px; position: absolute;"></i>
+                        
+                        更多
+                        <span class="m-icon"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+					<ul>
+						
+							<li> 
+								<a href="/friends" >
+									
+										<i class="fa fa-address-book" style="left: 15px; position: absolute;"></i>
+									
+									<span>友情链接</span>
+								</a>
+							</li>
+						
+							<li> 
+								<a href="/about" >
+									
+										<i class="fa fa-user-circle-o" style="left: 15px; position: absolute;"></i>
+									
+									<span>关于本站</span>
+								</a>
+							</li>
+						 
+					</ul>
+				
+			</li>
+		
+
+		
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ExoPlayer详解——入门（官方文档）
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+		<link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Android/" target="_blank">
+                                <span class="chip bg-color">Android</span>
+                            </a>
+                        
+                            <a href="/tags/播放器/" target="_blank">
+                                <span class="chip bg-color">播放器</span>
+                            </a>
+                        
+                            <a href="/tags/ExoPlayer/" target="_blank">
+                                <span class="chip bg-color">ExoPlayer</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Android/" class="post-category" target="_blank">
+                                Android
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-10-15
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        MrYZJ
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        8.1k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        32 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、ExoPlayer，你好"><a href="#一、ExoPlayer，你好" class="headerlink" title="一、ExoPlayer，你好"></a>一、ExoPlayer，你好</h1><blockquote>
+<h3 id="简单用例"><a href="#简单用例" class="headerlink" title="简单用例"></a>简单用例</h3><p>入门ExoPlayer包括实现以下步骤：</p>
+<ul>
+<li>将 <code>ExoPlayer</code> 添加为项目的依赖项。</li>
+<li>创建一个 <code>SimpleExoPlayer</code> 实例。</li>
+<li>将播放器连接到视图（用于视频输出和用户输入）。</li>
+<li>准备 player 的 <code>MediaSource</code> 播放。</li>
+<li>完成后释放播放器。</li>
+</ul>
+</blockquote>
+<h3 id="添加ExoPlayer作为依赖项"><a href="#添加ExoPlayer作为依赖项" class="headerlink" title="添加ExoPlayer作为依赖项"></a>添加ExoPlayer作为依赖项</h3><h4 id="1、添加存储库"><a href="#1、添加存储库" class="headerlink" title="1、添加存储库"></a>1、添加存储库</h4><p>确保<code>build.gradle</code>项目根目录中的文件中包含Google和JCenter存储库。</p>
+<pre class="line-numbers language-java"><code class="language-java">    repositories <span class="token punctuation">{</span>
+        <span class="token function">google</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">jcenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2、添加ExoPlayer模块"><a href="#2、添加ExoPlayer模块" class="headerlink" title="2、添加ExoPlayer模块"></a>2、添加ExoPlayer模块</h4><p>接下来在app目录下的<code>build.gradle</code>的文件中添加依赖项。以下内容将为完整的ExoPlayer库添加依赖项：</p>
+<pre class="line-numbers language-java"><code class="language-java">    implementation <span class="token string">'com.google.android.exoplayer:exoplayer:2.X.X'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>2.X.X</code>您的首选版本在哪里（可以通过查阅<a href="https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md" target="_blank" rel="noopener">发行说明</a>找到最新版本）。</p>
+<p>作为完整库的替代方法，您只能依赖于实际需要的库模块。例如，以下内容将添加对Core，DASH和UI库模块的依赖关系，这对于播放DASH内容的应用程序可能是必需的：</p>
+<pre class="line-numbers language-java"><code class="language-java">    implementation <span class="token string">'com.google.android.exoplayer:exoplayer-core:2.X.X'</span>
+    implementation <span class="token string">'com.google.android.exoplayer:exoplayer-dash:2.X.X'</span>
+    implementation <span class="token string">'com.google.android.exoplayer:exoplayer-ui:2.X.X'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>下面列出了可用的库模块。向完整的ExoPlayer库添加依赖项等同于单独添加所有库模块的依赖项。</p>
+<ul>
+<li><code>exoplayer-core</code>：核心功能（必需）。</li>
+<li><code>exoplayer-dash</code>：支持DASH内容。</li>
+<li><code>exoplayer-hls</code>：支持HLS内容。</li>
+<li><code>exoplayer-smoothstreaming</code>：支持SmoothStreaming内容。</li>
+<li><code>exoplayer-ui</code>：用于ExoPlayer的UI组件和资源。</li>
+</ul>
+<p>除了库模块，ExoPlayer还有多个扩展模块，它们依赖于外部库来提供附加功能。浏览<a href="https://github.com/google/ExoPlayer/tree/release-v2/extensions/" target="_blank" rel="noopener">扩展目录</a>及其各自的README以获取详细信息。</p>
+<h4 id="3、打开Java-8支持"><a href="#3、打开Java-8支持" class="headerlink" title="3、打开Java 8支持"></a>3、打开Java 8支持</h4><p>如果尚未启用，则需要在所有 <code>build.gradle</code>文件中打开Java 8支持，具体取决于ExoPlayer，方法是在以下<code>androi</code>d部分添加以下内容：</p>
+<pre class="line-numbers language-java"><code class="language-java">    compileOptions <span class="token punctuation">{</span>
+      targetCompatibility JavaVersion<span class="token punctuation">.</span>VERSION_1_8
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="4、创建播放器"><a href="#4、创建播放器" class="headerlink" title="4、创建播放器"></a>4、创建播放器</h4><p>您可以使用 <code>ExoPlayer</code>创建实例 <code>ExoPlayerFactory</code>。这个工厂实例提供了一系列方法来创建 <code>ExoPlayer</code>具有不同级别自定义的实例。对于绝大多数用例， <code>ExoPlayerFactory.newSimpleInstance</code>应该使用其中一种方法。这些方法返回 <code>SimpleExoPlayer</code>，扩展 <code>ExoPlayer</code>为添加额外的高级播放器功能。下面的代码是创建一个的例子  <code>SimpleExoPlayer</code>。</p>
+<pre class="line-numbers language-java"><code class="language-java">    SimpleExoPlayer player <span class="token operator">=</span> ExoPlayerFactory<span class="token punctuation">.</span><span class="token function">newSimpleInstance</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>必须从单个应用程序线程访问ExoPlayer实例。对于绝大多数情况，这应该是应用程序的主线程。使用ExoPlayer的UI组件或IMA扩展时，需要使用应用程序的主线程。</p>
+<p>必须访问 ExoPlayer 实例的线程可以通过 <code>Looper</code>在创建播放器时传递来明确指定。如果未 <code>Looper</code>指定，则 <code>Looper</code>使用创建播放器的线程，或者如果该线程没有 <code>Looper</code>， <code>Looper</code>则使用应用程序的主线程。在所有情况下， <code>Looper</code>可以使用查询必须访问播放器的线程 <code>Player.getApplicationLooper</code>。</p>
+<h4 id="5、将播放器附加到视图"><a href="#5、将播放器附加到视图" class="headerlink" title="5、将播放器附加到视图"></a>5、将播放器附加到视图</h4><p><code>ExoPlayer</code>库提供了一个 <code>PlayerView</code>封装一个 <code>PlayerControlView</code>，一个 <code>SubtitleView</code>和一个 <code>Surface</code>视频的视图。一个 <code>PlayerView</code>可以包含在应用程序的布局 <code>xml</code>中。将播放器绑定到视图非常简单：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Bind the player to the view.</span>
+    playerView<span class="token punctuation">.</span><span class="token function">setPlayer</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果您需要精准控制播放器并在 <code>Surface</code>上渲染视频，可以设置 <code>player</code>的目标 <code>SurfaceView</code>， <code>TextureView</code>， <code>SurfaceHolder</code>或 <code>Surface</code>直接分别使用 <code>SimpleExoPlayer</code>的 <code>setVideoSurfaceView</code>， <code>setVideoTextureView</code>， <code>setVideoSurfaceHolder</code>和  <code>setVideoSurface</code>的方法。您还可以将其 <code>PlayerControlView</code>用作独立组件，或实现自己的播放控件，直接与播放器进行交互。 <code>SimpleExoPlayer</code>的 <code>setTextOutput</code>和 <code>setId3Output</code>方法可用于在回放期间接收字幕和ID3元数据。</p>
+<h4 id="6、准备播放器"><a href="#6、准备播放器" class="headerlink" title="6、准备播放器"></a>6、准备播放器</h4><p>在 ExoPlayer 中，每个媒体都由一个 <code>MediaSource</code>代表。要播放媒体文件，必须首先创建一个对应的 <code>MediaSource</code>，然后将此对象传递给 <code>ExoPlayer.prepare</code>。 ExoPlayer 库提供  <code>MediaSourceDASH（DashMediaSource）</code>， <code>SmoothStreaming（SsMediaSource）</code>，<code>HLS（HlsMediaSource）</code>和常规媒体文件 <code>（ProgressiveMediaSource）</code>的实现。以下代码显示如何准备 <code>MediaSource</code>适合播放MP4文件的播放器。</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Produces DataSource instances through which media data is loaded.</span>
+    DataSource<span class="token punctuation">.</span>Factory dataSourceFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultDataSourceFactory</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span>
+    Util<span class="token punctuation">.</span><span class="token function">getUserAgent</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">"yourApplicationName"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// This is the MediaSource representing the media to be played.</span>
+    MediaSource videoSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span>dataSourceFactory<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>mp4VideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Prepare the player with the source.</span>
+    player<span class="token punctuation">.</span><span class="token function">prepare</span><span class="token punctuation">(</span>videoSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="7、控制播放器"><a href="#7、控制播放器" class="headerlink" title="7、控制播放器"></a>7、控制播放器</h4><p>一旦准备好了播放器，就可以通过调用播放器上的方法来控制播放。例如： <code>setPlayWhenReady</code>开始和暂停播放，各种 <code>seekTo</code>方法在媒体内寻找， <code>setRepeatMode</code>控制媒体是否以及如何循环， <code>setShuffleModeEnabled</code>控制播放列表改组，以及  <code>setPlaybackParameters</code>调整播放速度和音高。</p>
+<p>如果 <code>player</code>被绑定到 <code>PlayerView</code>或 <code>PlayerControlView</code>，则用户与这些组件的交互将导致调用播放器上的相应方法。</p>
+<h4 id="8、释放播放器"><a href="#8、释放播放器" class="headerlink" title="8、释放播放器"></a>8、释放播放器</h4><p>在不再需要 <code>player</code>时释放播放器非常重要，这样可以释放有限的资源，例如视频解码器，供其他应用程序使用。这可以通过调用来完成 <code>ExoPlayer.release</code>。</p>
+<hr>
+<hr>
+<h1 id="二、监听-Player-事件"><a href="#二、监听-Player-事件" class="headerlink" title="二、监听 Player 事件"></a>二、监听 Player 事件</h1><p>状态更改和回放错误等事件将报告给已注册的 <code>Player.EventListener</code>实例。注册监听器以接收此类事件很容易：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Add a listener to receive events from the player.</span>
+    player<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span>eventListener<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>Player.EventListener</code>具有空的默认方法，因此您只需要实现您感兴趣的方法。有关方法的完整描述以及何时调用它们，请参阅<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/Player.EventListener.html" target="_blank" rel="noopener">Javadoc</a>。两个最重要的是 <code>onPlayerStateChanged</code>和 <code>onPlayerError</code>，下面将更详细地描述。</p>
+<h3 id="（一）、onPlayerStateChanged"><a href="#（一）、onPlayerStateChanged" class="headerlink" title="（一）、onPlayerStateChanged"></a>（一）、onPlayerStateChanged</h3><p>player 状态的变化可以通过 <code>onPlayerStateChanged(boolean playWhenReady, int playbackState)</code>在注册中 实施来接收 <code>Player.EventListener</code>。播放器可以处于以下四种播放状态之一：</p>
+<ul>
+<li><code>Player.STATE_IDLE</code>：这是初始状态，播放器停止时的状态以及播放失败时的状态。</li>
+<li><code>Player.STATE_BUFFERING</code>： player 无法立即从当前位置进行播放。这主要是因为需要加载更多数据。</li>
+<li><code>Player.STATE_READY</code>： player 可以立即从当前位置进行播放。</li>
+<li><code>Player.STATE_ENDED</code>：播放器播放完所有媒体。</li>
+</ul>
+<p>除了这些状态之外， player 还有一个 <code>playWhenReady</code>标志来指示用户打算播放。如果状态为 <code>Player.STATE_READY</code>和 <code>playWhenReady=true</code>，则播放器仅播放。</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onPlayerStateChanged</span><span class="token punctuation">(</span>
+          <span class="token keyword">boolean</span> playWhenReady<span class="token punctuation">,</span> <span class="token annotation punctuation">@Player</span><span class="token punctuation">.</span>State <span class="token keyword">int</span> playbackState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>playWhenReady <span class="token operator">&amp;&amp;</span> playbackState <span class="token operator">==</span> Player<span class="token punctuation">.</span>STATE_READY<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Active playback.</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>playWhenReady<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Not playing because playback ended, the player is buffering, stopped or</span>
+        <span class="token comment" spellcheck="true">// failed. Check playbackState and player.getPlaybackError for details.</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Paused by app.</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="（二）、-onPlayerError"><a href="#（二）、-onPlayerError" class="headerlink" title="（二）、 onPlayerError"></a>（二）、 onPlayerError</h3><p>可以通过 <code>onPlayerError(ExoPlaybackException error)</code>在注册中 实现来接收导致回放失败的错误 <code>Player.EventListener</code>。发生故障时，将在播放状态转换为之前立即调用此方法 <code>Player.STATE_IDLE</code>。 <code>ExoPlaybackException</code>有一个 <code>type</code>字段，以及相应的 <code>getter</code>方法，它们返回原因异常，提供有关失败的更多信息。以下示例显示了如何检测由于HTTP网络问题导致播放失败的时间。</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onPlayerError</span><span class="token punctuation">(</span>ExoPlaybackException error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>type <span class="token operator">==</span> ExoPlaybackException<span class="token punctuation">.</span>TYPE_SOURCE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        IOException cause <span class="token operator">=</span> error<span class="token punctuation">.</span><span class="token function">getSourceException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cause <span class="token keyword">instanceof</span> <span class="token class-name">HttpDataSourceException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// An HTTP error occurred.</span>
+          HttpDataSourceException httpError <span class="token operator">=</span> <span class="token punctuation">(</span>HttpDataSourceException<span class="token punctuation">)</span> cause<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">// This is the request for which the error occurred.</span>
+          DataSpec requestDataSpec <span class="token operator">=</span> httpError<span class="token punctuation">.</span>dataSpec<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">// It's possible to find out more about the error both by casting and by</span>
+          <span class="token comment" spellcheck="true">// querying the cause.</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>httpError <span class="token keyword">instanceof</span> <span class="token class-name">HttpDataSource<span class="token punctuation">.</span>InvalidResponseCodeException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Cast to InvalidResponseCodeException and retrieve the response code,</span>
+            <span class="token comment" spellcheck="true">// message and headers.</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Try calling httpError.getCause() to retrieve the underlying cause,</span>
+            <span class="token comment" spellcheck="true">// although note that it may be null.</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="（三）、使用-EventLogger"><a href="#（三）、使用-EventLogger" class="headerlink" title="（三）、使用 EventLogger"></a>（三）、使用 EventLogger</h3><p>默认情况下，ExoPlayer 仅记录错误。要将播放器事件记录到控制台， <code>EventLogger</code>可以使用该类。它提供的额外日志记录有助于了解播放器正在做什么，以及调试播放问题。 <code>EventLogger</code>实现 <code>AnalyticsListener</code>，因此使用 <code>SimpleExoPlayer</code>注册实例很容易：</p>
+<pre class="line-numbers language-java"><code class="language-java">    player<span class="token punctuation">.</span><span class="token function">addAnalyticsListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">EventLogger</span><span class="token punctuation">(</span>trackSelector<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="1、解释日志输出"><a href="#1、解释日志输出" class="headerlink" title="1、解释日志输出"></a>1、解释日志输出</h4><p>观察日志的最简单方法是使用 Android Studio 的 <code>logcat</code>选项卡。您可以通过包名称选择您的应用程序作为可调试进程（ com.google.android.exoplayer2.demo如果使用演示应用程序），并通过选择“仅显示所选应用程序”告诉logcat选项卡仅记录该应用程序。可以使用表达式进一步过滤日志记录 <code>EventLogger|ExoPlayerImpl</code>，以便仅从日志 <code>EventLogger</code>和播放器本身进行日志记录。</p>
+<p>使用Android Studio的logcat选项卡的另一种方法是使用控制台。例如：</p>
+<pre class="line-numbers language-java"><code class="language-java">    adb logcat <span class="token operator">|</span> grep <span class="token string">'EventLogger\|ExoPlayerImpl'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="2、player信息"><a href="#2、player信息" class="headerlink" title="2、player信息"></a>2、player信息</h4><p>该 <code>ExoPlayerImpl</code>类提供了两个关于播放器版本，运行应用程序的设备和操作系统以及已加载的 ExoPlayer 模块的重要内容：</p>
+<pre class="line-numbers language-java"><code class="language-java">    ExoPlayerImpl<span class="token operator">:</span> Release 2cd6e65 <span class="token punctuation">[</span>ExoPlayerLib<span class="token operator">/</span><span class="token number">2.9</span><span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>marlin<span class="token punctuation">,</span> Pixel XL<span class="token punctuation">,</span> Google<span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>goog<span class="token punctuation">.</span>exo<span class="token punctuation">.</span>core<span class="token punctuation">,</span> goog<span class="token punctuation">.</span>exo<span class="token punctuation">.</span>ui<span class="token punctuation">,</span> goog<span class="token punctuation">.</span>exo<span class="token punctuation">.</span>dash<span class="token punctuation">]</span>
+    ExoPlayerImpl<span class="token operator">:</span> Init 2e5194c <span class="token punctuation">[</span>ExoPlayerLib<span class="token operator">/</span><span class="token number">2.9</span><span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>marlin<span class="token punctuation">,</span> Pixel XL<span class="token punctuation">,</span> Google<span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="3、播放状态"><a href="#3、播放状态" class="headerlink" title="3、播放状态"></a>3、播放状态</h4><p>播放器状态更改记录在以下行中。在此示例中，播放永远不会重建（在初始缓冲之后）并且用户暂停一次：</p>
+<pre class="line-numbers language-java"><code class="language-java">    EventLogger<span class="token operator">:</span> state <span class="token punctuation">[</span><span class="token number">0.00</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> BUFFERING<span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> state <span class="token punctuation">[</span><span class="token number">0.92</span><span class="token punctuation">,</span> <span class="token number">0.04</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> READY<span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> state <span class="token punctuation">[</span><span class="token number">11.53</span><span class="token punctuation">,</span> <span class="token number">10.60</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> READY<span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> state <span class="token punctuation">[</span><span class="token number">14.26</span><span class="token punctuation">,</span> <span class="token number">10.60</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> READY<span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> state <span class="token punctuation">[</span><span class="token number">131.89</span><span class="token punctuation">,</span> <span class="token number">128.27</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> ENDED<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方括号内的元素是：</p>
+<ul>
+<li><code>[float]</code>：自 player 创建以来的挂钟时间。</li>
+<li><code>[float]</code>：当前播放位置。</li>
+<li><code>[window=int]</code>：当前窗口索引。</li>
+<li><code>[period=int]</code>：该窗口中的当前时段。</li>
+<li><code>[boolean]</code>： <code>playWhenReady</code>标志。</li>
+<li><code>[string]</code>：当前播放状态。</li>
+</ul>
+<h4 id="4、媒体曲目"><a href="#4、媒体曲目" class="headerlink" title="4、媒体曲目"></a>4、媒体曲目</h4><p>当可用或选定的曲目发生变化时，将记录曲目信息。这在回放开始时至少发生一次。以下示例显示了自适应流的跟踪日志记录：</p>
+<pre class="line-numbers language-java"><code class="language-java">    EventLogger<span class="token operator">:</span> tracksChanged <span class="token punctuation">[</span><span class="token number">2.32</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+    EventLogger<span class="token operator">:</span>   Renderer<span class="token operator">:</span><span class="token number">0</span> <span class="token punctuation">[</span>
+    EventLogger<span class="token operator">:</span>     Group<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span> adaptive_supported<span class="token operator">=</span>YES <span class="token punctuation">[</span>
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">133</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">261112</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d4015<span class="token punctuation">,</span> res<span class="token operator">=</span>426x240<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">134</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">671331</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d401e<span class="token punctuation">,</span> res<span class="token operator">=</span>640x360<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">135</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">1204535</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d401f<span class="token punctuation">,</span> res<span class="token operator">=</span>854x480<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">160</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">112329</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d400c<span class="token punctuation">,</span> res<span class="token operator">=</span>256x144<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">136</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">2400538</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d401f<span class="token punctuation">,</span> res<span class="token operator">=</span>1280x720<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>     <span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span>   <span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span>   Renderer<span class="token operator">:</span><span class="token number">1</span> <span class="token punctuation">[</span>
+    EventLogger<span class="token operator">:</span>     Group<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span> adaptive_supported<span class="token operator">=</span>YES_NOT_SEAMLESS <span class="token punctuation">[</span>
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span> <span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">139</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>audio<span class="token operator">/</span>mp4a<span class="token operator">-</span>latm<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">48582</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>mp4a<span class="token number">.40</span><span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">,</span> channels<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> sample_rate<span class="token operator">=</span><span class="token number">22050</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>       <span class="token punctuation">[</span>X<span class="token punctuation">]</span> Track<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">140</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>audio<span class="token operator">/</span>mp4a<span class="token operator">-</span>latm<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">127868</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>mp4a<span class="token number">.40</span><span class="token punctuation">.</span><span class="token number">2</span><span class="token punctuation">,</span> channels<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> sample_rate<span class="token operator">=</span><span class="token number">44100</span><span class="token punctuation">,</span> supported<span class="token operator">=</span>YES
+    EventLogger<span class="token operator">:</span>     <span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span>   <span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>播放自适应流时，播放期间会记录正在播放的格式的更改以及所选曲目的属性：</p>
+<pre class="line-numbers language-java"><code class="language-java">    EventLogger<span class="token operator">:</span> downstreamFormatChanged <span class="token punctuation">[</span><span class="token number">3.64</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">134</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>video<span class="token operator">/</span>avc<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">671331</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>avc1<span class="token punctuation">.</span>4d401e<span class="token punctuation">,</span> res<span class="token operator">=</span>640x360<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">30.0</span><span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> downstreamFormatChanged <span class="token punctuation">[</span><span class="token number">3.64</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token number">140</span><span class="token punctuation">,</span> mimeType<span class="token operator">=</span>audio<span class="token operator">/</span>mp4a<span class="token operator">-</span>latm<span class="token punctuation">,</span> bitrate<span class="token operator">=</span><span class="token number">127868</span><span class="token punctuation">,</span> codecs<span class="token operator">=</span>mp4a<span class="token number">.40</span><span class="token punctuation">.</span><span class="token number">2</span><span class="token punctuation">,</span> channels<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> sample_rate<span class="token operator">=</span><span class="token number">44100</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="3、解码器选择"><a href="#3、解码器选择" class="headerlink" title="3、解码器选择"></a>3、解码器选择</h4><p>在大多数情况下，ExoPlayer使用 <code>MediaCodec</code>从底层平台获取的媒体来呈现媒体。在报告任何播放状态之前，您将找到记录，告诉您哪些解码器已初始化。例如：</p>
+<pre class="line-numbers language-java"><code class="language-java">    EventLogger<span class="token operator">:</span> decoderInitialized <span class="token punctuation">[</span><span class="token number">0.77</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> video<span class="token punctuation">,</span> OMX<span class="token punctuation">.</span>qcom<span class="token punctuation">.</span>video<span class="token punctuation">.</span>decoder<span class="token punctuation">.</span>avc<span class="token punctuation">]</span>
+    EventLogger<span class="token operator">:</span> decoderInitialized <span class="token punctuation">[</span><span class="token number">0.79</span><span class="token punctuation">,</span> <span class="token number">0.00</span><span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> audio<span class="token punctuation">,</span> OMX<span class="token punctuation">.</span>google<span class="token punctuation">.</span>aac<span class="token punctuation">.</span>decoder<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<hr>
+<hr>
+<h1 id="三、媒体来源"><a href="#三、媒体来源" class="headerlink" title="三、媒体来源"></a>三、媒体来源</h1><p>在ExoPlayer中，每个媒体都由 <code>MediaSource</code>代表。ExoPlayer库提供 <code>MediaSource</code> 了多种流类型的实现：</p>
+<ul>
+<li><code>DashMediaSource</code>对于<a href="https://exoplayer.dev/dash.html" target="_blank" rel="noopener"><strong>DASH</strong></a>。</li>
+<li><code>SsMediaSource</code>对于<a href="https://exoplayer.dev/smoothstreaming.html" target="_blank" rel="noopener"><strong>SmoothStreaming</strong></a>。</li>
+<li><code>HlsMediaSource</code>对于<a href="https://exoplayer.dev/hls.html" target="_blank" rel="noopener"><strong>HLS</strong></a>。</li>
+<li><code>ProgressiveMediaSource</code>对于<a href="https://exoplayer.dev/progressive.html" target="_blank" rel="noopener"><strong>常规媒体文件</strong></a>。</li>
+</ul>
+<p>可以 <code>PlayerActivity</code>在<a href="https://github.com/google/ExoPlayer/tree/release-v2/demos/main/" target="_blank" rel="noopener">主演示应用程序中</a>找到实例化所有四个的<a href="https://github.com/google/ExoPlayer/tree/release-v2/demos/main/" target="_blank" rel="noopener">示例</a>。</p>
+<h3 id="1、MediaSource组成"><a href="#1、MediaSource组成" class="headerlink" title="1、MediaSource组成"></a>1、MediaSource组成</h3><p>除了上面描述的 <code>MediaSource</code> 的实现方式中，ExoPlayer库还提供 <code>ConcatenatingMediaSource</code> ， <code>ClippingMediaSource</code> ， <code>LoopingMediaSource</code> 和 <code>MergingMediaSource</code> 。这些 <code>MediaSource</code> 实现通过组合实现更复杂的回放功能。一些常见用例如下所述。请注意，尽管在视频播放的 <code>context</code> 中描述了以下一些示例，但它们同样适用于仅音频播放，并且实际上适用于任何支持的媒体类型的播放。</p>
+<h3 id="2、播放播放列表"><a href="#2、播放播放列表" class="headerlink" title="2、播放播放列表"></a>2、播放播放列表</h3><p>使用支持播放列表 <code>ConcatenatingMediaSource</code> ，可以连续播放多个 <code>MediaSource</code> 。可以通过在播放期间添加，移除和移动 <code>MediaSource</code> 来动态修改播放列表 <code>ConcatenatingMediaSource</code> 。有关详细信息，请参阅<a href="https://exoplayer.dev/playlists.html" target="_blank" rel="noopener">播放列表页面</a>。</p>
+<h3 id="3、剪辑视频"><a href="#3、剪辑视频" class="headerlink" title="3、剪辑视频"></a>3、剪辑视频</h3><p><code>ClippingMediaSource</code> 可用于剪辑 <code>MediaSource</code> 以便只播放部分内容。以下示例将视频播放剪辑为以5秒开始并以10秒结束。</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource videoSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>videoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Clip to start at 5 seconds and end at 10 seconds.</span>
+    ClippingMediaSource clippingSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ClippingMediaSource</span><span class="token punctuation">(</span>
+            videoSource<span class="token punctuation">,</span>
+            <span class="token comment" spellcheck="true">/* startPositionUs= */</span> 5_000_000<span class="token punctuation">,</span>
+            <span class="token comment" spellcheck="true">/* endPositionUs= */</span> 10_000_000<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>要仅剪辑源的开头， <code>endPositionUs</code> 可以设置为 <code>C.TIME_END_OF_SOURCE</code> 。要仅剪切到特定的持续时间，有一个构造函数接受一个 <code>durationUs</code> 参数。</p>
+<blockquote>
+<p>剪切视频文件的开头时，尽可能将起始位置与关键帧对齐。如果开始位置未与关键帧对齐，则播放器将需要解码并丢弃从先前关键帧到开始位置的数据，然后才能开始播放。这将在播放开始时引入短暂的延迟，包括当播放器转换为播放 ClippingMediaSource播放列表的一部分或由于循环播放时。</p>
+</blockquote>
+<h3 id="4、循环播放视频"><a href="#4、循环播放视频" class="headerlink" title="4、循环播放视频"></a>4、循环播放视频</h3><blockquote>
+<p>要无限循环播放，比起 <code>LoopingMediaSource</code> 最好使用 <code>ExoPlayer.setRepeatMode</code> 。</p>
+</blockquote>
+<p>视频可以使用 <code>LoopingMediaSource</code> 无缝循环固定次数。以下示例播放视频两次。</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource source <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>videoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the video twice.</span>
+    LoopingMediaSource loopingSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LoopingMediaSource</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5、侧加载字幕文件"><a href="#5、侧加载字幕文件" class="headerlink" title="5、侧加载字幕文件"></a>5、侧加载字幕文件</h3><p>给定视频文件和单独的字幕文件， <code>MergingMediaSource</code> 可用于将它们合并为单个源以进行回放。</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Build the video MediaSource.</span>
+    MediaSource videoSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>videoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Build the subtitle MediaSource.</span>
+    Format subtitleFormat <span class="token operator">=</span> Format<span class="token punctuation">.</span><span class="token function">createTextSampleFormat</span><span class="token punctuation">(</span>
+        id<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// An identifier for the track. May be null.</span>
+        MimeTypes<span class="token punctuation">.</span>APPLICATION_SUBRIP<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// The mime type. Must be set correctly.</span>
+        selectionFlags<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// Selection flags for the track.</span>
+        language<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// The subtitle language. May be null.</span>
+    MediaSource subtitleSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">SingleSampleMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>subtitleUri<span class="token punctuation">,</span> subtitleFormat<span class="token punctuation">,</span> C<span class="token punctuation">.</span>TIME_UNSET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the video with the sideloaded subtitle.</span>
+    MergingMediaSource mergedSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">MergingMediaSource</span><span class="token punctuation">(</span>videoSource<span class="token punctuation">,</span> subtitleSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6、先进的结构"><a href="#6、先进的结构" class="headerlink" title="6、先进的结构"></a>6、先进的结构</h3><p>可以进一步组合成复杂的 <code>MediaSource</code> 以用于更多不寻常的实例。给定两个视频A和B，以下示例显示如何可以一起使用 <code>LoopingMediaSource</code> 和 <code>ConcatenatingMediaSource</code> 来播放序列（A，A，B）。</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource firstSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>firstVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    MediaSource secondSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>secondVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the first video twice.</span>
+    LoopingMediaSource firstSourceTwice <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LoopingMediaSource</span><span class="token punctuation">(</span>firstSource<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the first video twice, then the second video.</span>
+    ConcatenatingMediaSource concatenatedSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ConcatenatingMediaSource</span><span class="token punctuation">(</span>firstSourceTwice<span class="token punctuation">,</span> secondSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以下示例是等效的，表明可以有多种方法来实现相同的结果。</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource firstSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>firstVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    MediaSource secondSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>secondVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the first video twice, then the second video.</span>
+    ConcatenatingMediaSource concatenatedSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ConcatenatingMediaSource</span><span class="token punctuation">(</span>firstSource<span class="token punctuation">,</span> firstSource<span class="token punctuation">,</span> secondSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<hr>
+<h1 id="四、播放列表"><a href="#四、播放列表" class="headerlink" title="四、播放列表"></a>四、播放列表</h1><p>使用支持播放列表的 <code>ConcatenatingMediaSource</code> ，可以连续播放多个 <code>MediaSource</code> 。以下示例表示由两个视频组成的播放列表。</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource firstSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>firstVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    MediaSource secondSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>secondVideoUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Plays the first video, then the second video.</span>
+    ConcatenatingMediaSource concatenatedSource <span class="token operator">=</span>
+        <span class="token keyword">new</span> <span class="token class-name">ConcatenatingMediaSource</span><span class="token punctuation">(</span>firstSource<span class="token punctuation">,</span> secondSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>播放列表中的项目之间的转换是 <strong>无缝</strong> 的。并不要求它们具有相同的格式（例如，播放列表包含H264和VP9视频都很好）。它们甚至可以是不同类型的（例如，播放列表包含视频和仅音频流都很好）。允许 <code>MediaSource</code> 在播放列表中多次使用相同的内容。</p>
+<h3 id="1、修改播放列表"><a href="#1、修改播放列表" class="headerlink" title="1、修改播放列表"></a>1、修改播放列表</h3><p>可以通过在 <code>ConcatenatingMediaSource</code> 中添加，删除和移动 <code>MediaSource</code> 来动态修改播放列表。这可以通过调用相应的 <code>ConcatenatingMediaSource</code> 方法在回放之前和回放期间完成。播放器以正确的方式自动处理播放期间的修改。例如，如果当前正在播放 <code>MediaSource</code> ，则不会中断播放，并且将在完成时播放其新的后继播放。如果当前播放 <code>MediaSource</code> 被移除，则播放器将自动移动到播放第一个剩余的后继者，或者如果不存在这样的后继者则转换到结束状态。</p>
+<h3 id="2、识别播放列表项"><a href="#2、识别播放列表项" class="headerlink" title="2、识别播放列表项"></a>2、识别播放列表项</h3><p>为了简化播放列表项的识别， <code>MediaSource</code> 可以在工厂类中使用自定义标签设置每个项目 <code>MediaSource</code> ，这可以是uri，标题或任何其他自定义对象。可以使用查询当前正在播放的项目的标签 <code>player.getCurrentTag</code> 。 <code>player.getCurrentTimeline</code> 返回的当前值<code>Timeline</code> 还包含所有标记作为 <code>Timeline.Window</code> 对象的一部分 。</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// Add mediaId (e.g. uri) as tag to the MediaSource.</span>
+      MediaSource mediaSource <span class="token operator">=</span>
+          <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource<span class="token punctuation">.</span>Factory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">setTag</span><span class="token punctuation">(</span>mediaId<span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      concatenatedSource<span class="token punctuation">.</span><span class="token function">addMediaSource</span><span class="token punctuation">(</span>mediaSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onPositionDiscontinuity</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Player</span><span class="token punctuation">.</span>DiscontinuityReason <span class="token keyword">int</span> reason<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// Load metadata for mediaId and update the UI.</span>
+      CustomMetadata metadata <span class="token operator">=</span> CustomMetadata<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">getCurrentTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      titleView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>metadata<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3、检测播放何时转换到另一个项目"><a href="#3、检测播放何时转换到另一个项目" class="headerlink" title="3、检测播放何时转换到另一个项目"></a>3、检测播放何时转换到另一个项目</h3><p>当前播放项目更改时，可以调用三种类型的事件：</p>
+<ul>
+<li><code>EventListener.onPositionDiscontinuity</code> 与 <code>reason = Player.DISCONTINUITY_REASON_PERIOD_TRANSITION</code>。当播放自动从一个项目转换到下一个项目时会发生这种情况</li>
+<li><code>EventListener.onPositionDiscontinuity</code> 与 <code>reason = Player.DISCONTINUITY_REASON_SEEK</code>。当当前播放项目作为搜索操作的一部分而改变时，例如在呼叫时，会发生这种情况 <code>Player.next</code>。</li>
+<li><code>EventListener.onTimelineChanged</code> 与 <code>reason = Player.TIMELINE_CHANGE_REASON_DYNAMIC</code> 。当播放列表发生更改时会发生这种情况，例如，如果添加，移动或删除项目。</li>
+</ul>
+<p>在所有情况下，当您的应用程序代码收到事件时，您可以查询播放器以确定播放列表中正在播放的项目。这可以使用诸如 <code>Player.getCurrentWindowIndex</code> 和 <code>Player.getCurrentTag</code> 之类的方法来完成。如果您只想检测播放列表项目更改，则必须与最后一个已知的窗口索引或标记进行比较，因为上述事件可能由于其他原因而被触发。</p>
+<hr>
+<hr>
+<h1 id="五、TrackSelector"><a href="#五、TrackSelector" class="headerlink" title="五、TrackSelector"></a>五、TrackSelector</h1><p>曲目选择确定播放器播放哪些可用媒体曲目。轨道选择是<code>TrackSelector</code>的责任，可以在<code>ExoPlayer</code>构建时提供其实例。</p>
+<pre class="line-numbers language-java"><code class="language-java">    DefaultTrackSelector trackSelector <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultTrackSelector</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    SimpleExoPlayer player <span class="token operator">=</span>
+        ExoPlayerFactory<span class="token punctuation">.</span><span class="token function">newSimpleInstance</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> trackSelector<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>DefaultTrackSelector</code> <code>TrackSelector</code>适用于大多数用例的灵活性。使用<code>DefaultTrackSelector</code> 时，可以通过修改它来控制它选择的轨道 <code>Parameters</code> 。这可以在播放之前或播放期间完成。例如，以下代码告诉选择器将视频轨道选择限制为SD，并选择德语音轨（如果有）：</p>
+<pre class="line-numbers language-java"><code class="language-java">    trackSelector<span class="token punctuation">.</span><span class="token function">setParameters</span><span class="token punctuation">(</span>
+        trackSelector
+            <span class="token punctuation">.</span><span class="token function">buildUponParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">setMaxVideoSizeSd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">setPreferredAudioLanguage</span><span class="token punctuation">(</span><span class="token string">"deu"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是基于约束的轨道选择的示例，其中在不知道实际可用的轨道的情况下指定约束。可以使用指定许多不同类型的约束 <code>Parameters</code> 。 <code>Parameters</code> 也可用于从可用的轨道中选择特定轨道。有关更多详细信息<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.html" target="_blank" rel="noopener">DefaultTrackSelector</a>，请参阅<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.Parameters.html" target="_blank" rel="noopener">Parameters</a>和<a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.ParametersBuilder.html" target="_blank" rel="noopener">ParametersBuilder</a>文档。</p>
+<hr>
+<hr>
+<h1 id="六、UI组件"><a href="#六、UI组件" class="headerlink" title="六、UI组件"></a>六、UI组件</h1><p>应用程序播放媒体需要用户界面组件来显示媒体和控制播放。ExoPlayer库包含一个包含许多UI组件的UI模块。要依赖UI模块添加依赖项，如下所示，2.X.X您的首选版本在哪里（可以通过查阅发行说明找到最新版本）。</p>
+<pre class="line-numbers language-java"><code class="language-java">implementation <span class="token string">'com.google.android.exoplayer:exoplayer-ui:2.X.X'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最重要的组件是 <code>PlayerControlView</code> 和 <code>PlayerView</code> 。</p>
+<ul>
+<li><code>PlayerControlView</code>是用于控制播放的视图。它显示标准播放控件，包括播放/暂停按钮，快进和快退按钮以及搜索栏。</li>
+<li><code>PlayerView</code>是播放的高级视图。它在播放期间显示视频，字幕和专辑封面，以及使用<code>PlayerControlView</code>播放控件 。</li>
+</ul>
+<p>两个视图都有一个 <code>setPlayer</code> 附加和分离（通过传递 null）播放器实例的方法。</p>
+<h3 id="1、PlayerView"><a href="#1、PlayerView" class="headerlink" title="1、PlayerView"></a>1、PlayerView</h3><p><code>PlayerView</code> 可用于视频和音频播放。它在视频播放的情况下呈现视频和字幕，并且可以在音频文件中显示作为元数据包括的艺术作品。您可以在布局文件中像其他UI组件中一样，加载<code>PlayerView</code> ：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>android<span class="token punctuation">.</span>exoplayer2<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>PlayerView
+        android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/player_view"</span>
+        android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"match_parent"</span>
+        android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"match_parent"</span>
+        app<span class="token operator">:</span>show_buffering<span class="token operator">=</span><span class="token string">"when_playing"</span>
+        app<span class="token operator">:</span>show_shuffle_button<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的代码片段说明了<code>PlayerView</code>提供了几个属性。这些属性可用于自定义视图的行为及其外观。这些属性中的大多数都具有相应的<code>setter</code>方法，可用于在运行时自定义视图。该 <a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/ui/PlayerView.html" target="_blank" rel="noopener">PlayerView</a>的Javadoc文档中详细介绍这些属性和setter方法。</p>
+<p>一旦<code>PlayerView</code>在布局文件中声明，就可以<code>onCreate</code>在活动的方法中查找它：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// ...</span>
+      playerView <span class="token operator">=</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>player_view<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当player初始化时，可以通过调用setPlayer以下内容将其附加到视图 ：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Instantiate the player.</span>
+    player <span class="token operator">=</span> ExoPlayerFactory<span class="token punctuation">.</span><span class="token function">newSimpleInstance</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Attach player to the view.</span>
+    playerView<span class="token punctuation">.</span><span class="token function">setPlayer</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Prepare the player with the dash media source.</span>
+    player<span class="token punctuation">.</span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2、选择Surface类型"><a href="#2、选择Surface类型" class="headerlink" title="2、选择Surface类型"></a>2、选择Surface类型</h3><p>该<code>surface_type</code>属性<code>PlayerView</code>可让您设置用于视频播放的<code>Surface</code>类型。除了值<code>spherical_view</code>（这是球形视频播放一个特殊的值）时，允许值是<code>surface_view</code>， <code>texture_view</code>和<code>none</code>。如果视图仅用于音频播放，则应使用<code>none</code>以避免必须创建<code>Surface</code>，因为这样做可能耗费资源。</p>
+<p>如果视图是用于常规视频播放那么 <code>surface_view</code> 或 <code>texture_view</code> 应该使用。对于视频播放，相比<code>TextureView</code>，<code>SurfaceView</code>有许多好处：</p>
+<ul>
+<li>显着降低了许多设备的功耗。</li>
+<li>更准确的帧定时，使视频播放更流畅。</li>
+<li>播放受DRM保护的内容时支持安全输出。</li>
+</ul>
+<p>因此，相比较于<code>TextureView</code>，<code>SurfaceView</code>应尽可能优先考虑。 <code>TextureView</code>只有在<code>SurfaceView</code>不符合您需求的情况下才能使用。一个示例是在Android N之前需要平滑动画或滚动视频表面，如下所述。对于这种情况，最好 <code>TextureView</code> 只在<a href="https://developer.android.com/reference/android/os/Build.VERSION.html#SDK_INT" target="_blank" rel="noopener">SDK_INT</a>小于24（Android N）时使用， 否则，使用SurfaceView。</p>
+<blockquote>
+<p><code>SurfaceView</code>在Android N之前，渲染未与视图动画正确同步。在早期版本<code>SurfaceView</code>中，当放入滚动容器或受到动画影响时，这可能会导致不必要的效果 。这些效果包括视图的内容看起来略微落后于它应该显示的位置，并且视图在受到动画时变黑。为了在Android N之前实现流畅的动画或视频滚动，因此必须使用<code>TextureView</code>而不是<code>SurfaceView</code>。</p>
+</blockquote>
+<h3 id="3、PlayerControlView"><a href="#3、PlayerControlView" class="headerlink" title="3、PlayerControlView"></a>3、PlayerControlView</h3><p>当使用 <code>PlayerView</code> 时， <code>PlayerControlView</code> 在内部用于提供播放控制。对于特定用例 <code>PlayerControlView</code> ，也可以用作独立组件。它可以像任何其他UI组件一样包含在布局文件中：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>android<span class="token punctuation">.</span>exoplayer2<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>PlayerControlView
+        android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/player_control_view"</span>
+        android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"match_parent"</span>
+        android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"match_parent"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>比起 <code>PlayerView</code> ， <a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/ui/PlayerControlView.html" target="_blank" rel="noopener">PlayerControlView</a> 的Javadoc更详细地记录了可用的属性和<code>setter</code>方法。查找 <code>PlayerControlView</code> 并将播放器附加到视图与使用时类似<code>PlayerView</code>：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// ...</span>
+      playerControlView <span class="token operator">=</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>player_control_view<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initializePlayer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// Instantiate the player.</span>
+      player <span class="token operator">=</span> ExoPlayerFactory<span class="token punctuation">.</span><span class="token function">newSimpleInstance</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// Attach player to the view.</span>
+      playerControlView<span class="token punctuation">.</span><span class="token function">setPlayer</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// Prepare the player with the dash media source.</span>
+      player<span class="token punctuation">.</span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4、覆盖布局文件"><a href="#4、覆盖布局文件" class="headerlink" title="4、覆盖布局文件"></a>4、覆盖布局文件</h3><p>当<code>PlayerView</code>被实例化后，它从布局文件 <code>exo_player_view.xml</code>扩展 （<code>inflate</code>） 它的布局。<code>PlayerControlView</code>从 <code>exo_player_control_view.xml</code>中扩展其布局。要自定义这些布局，应用程序可以在其自己的<code>res/layout*</code>目录中定义具有相同名称的布局文件。这些布局文件会覆盖ExoPlayer库提供的文件。</p>
+<p>例如，假设我们希望我们的播放控件仅包含位于视图中心的播放/暂停按钮。我们可以通过exo_player_control_view.xml在应用程序的res/layout 目录中创建文件来实现这一点，包含：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>FrameLayout xmlns<span class="token operator">:</span>android<span class="token operator">=</span><span class="token string">"http://schemas.android.com/apk/res/android"</span>
+        android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"match_parent"</span>
+        android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"match_parent"</span><span class="token operator">></span>
+
+      <span class="token operator">&lt;</span>ImageButton android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@id/exo_play"</span>
+          android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"100dp"</span>
+          android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"100dp"</span>
+          android<span class="token operator">:</span>layout_gravity<span class="token operator">=</span><span class="token string">"center"</span>
+          android<span class="token operator">:</span>background<span class="token operator">=</span><span class="token string">"#CC000000"</span>
+          style<span class="token operator">=</span><span class="token string">"@style/ExoMediaButton.Play"</span><span class="token operator">/</span><span class="token operator">></span>
+
+      <span class="token operator">&lt;</span>ImageButton android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@id/exo_pause"</span>
+          android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"100dp"</span>
+          android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"100dp"</span>
+          android<span class="token operator">:</span>layout_gravity<span class="token operator">=</span><span class="token string">"center"</span>
+          android<span class="token operator">:</span>background<span class="token operator">=</span><span class="token string">"#CC000000"</span>
+          style<span class="token operator">=</span><span class="token string">"@style/ExoMediaButton.Pause"</span><span class="token operator">/</span><span class="token operator">></span>
+
+    <span class="token operator">&lt;</span><span class="token operator">/</span>FrameLayout<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>与标准对照相比，视觉外观的变化如下所示。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://img-blog.csdnimg.cn/20190806202341249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01SWVpK,size_16,color_FFFFFF,t_70" alt="使用自定义控件替换标准播放控件"></p>
+<h3 id="5、自定义布局文件"><a href="#5、自定义布局文件" class="headerlink" title="5、自定义布局文件"></a>5、自定义布局文件</h3><p>覆盖布局文件是改变整个应用程序布局的绝佳解决方案，但是如果仅在一个地方需要自定义布局呢？要实现这一点，首先要定义一个布局文件，就像覆盖其中一个默认布局一样，但这次给它一个不同的文件名<code>custom_controls.xml</code>。其次，使用属性指示在对视图进行扩展（<code>inflate</code>）时应使用此布局。例如，在使用时 <code>PlayerView</code>，可以使用以下<code>controller_layout_id</code>属性指定扩展（<code>inflate</code>）以提供播放控件的布局：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>android<span class="token punctuation">.</span>exoplayer2<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>PlayerView 
+         android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/player_view"</span>
+         android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"match_parent"</span>
+         android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"match_parent"</span>
+         app<span class="token operator">:</span>controller_layout_id<span class="token operator">=</span><span class="token string">"@layout/custom_controls"</span><span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<hr>
+<h1 id="七、下载媒体"><a href="#七、下载媒体" class="headerlink" title="七、下载媒体"></a>七、下载媒体</h1><p>ExoPlayer提供下载媒体以进行离线播放的功能。在大多数用例中，即使您的应用程序处于后台，也可以继续下载。对于这些用例，您的应用程序应该是子类DownloadService，并将命令发送到服务以添加，删除和控制下载。下图显示了涉及的主要类。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://img-blog.csdnimg.cn/20190806202643758.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01SWVpK,size_16,color_FFFFFF,t_70" alt="下载媒体的类。箭头方向表示数据流。"></p>
+<ul>
+<li><code>DownloadService</code>：包装<code>DownloadManager</code>并转发命令。该服务允许<code>DownloadManager</code>即使应用程序在后台运行也能继续运行。</li>
+<li><code>DownloadManager</code>：管理多个下载，根据网络连接等要求加载（和存储）来自（和） <code>DownloadIndex</code>的状态，启动和停止下载。要下载内容，管理员通常会读取从<code>HttpDataSource</code>下载的数据 ，并将其写入<code>Cache</code>。</li>
+<li><code>DownloadIndex</code>：保持下载状态。</li>
+</ul>
+<h3 id="1、创建DownloadService"><a href="#1、创建DownloadService" class="headerlink" title="1、创建DownloadService"></a>1、创建DownloadService</h3><p>要创建一个<code>DownloadService</code>，您需要将其子类化并实现其抽象方法：</p>
+<ul>
+<li><code>getDownloadManager()</code>：返回<code>DownloadManager</code>要使用的。</li>
+<li><code>getScheduler()</code>：返回一个可选项<code>Scheduler</code>，可以在满足挂起下载进度所需的需求时重新启动服务。<code>ExoPlayer</code>提供两种实现：<ul>
+<li><code>PlatformScheduler</code>，它使用<a href="https://developer.android.com/reference/android/app/job/JobScheduler" target="_blank" rel="noopener">JobScheduler</a>。</li>
+<li><code>JobDispatcherScheduler</code>，它使用 <a href="https://github.com/firebase/firebase-jobdispatcher-android" target="_blank" rel="noopener">Firebase JobDispatcher</a>。</li>
+</ul>
+</li>
+<li><code>getForegroundNotification()</code>：返回服务在前台运行时要显示的通知。您可以使用 <code>DownloadNotificationHelper.buildProgressNotification</code>默认样式创建通知。</li>
+</ul>
+<p>最后，您需要在<code>AndroidManifest.xml</code>文件中定义服务：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token operator">&lt;</span>service android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"com.myapp.MyDownloadService"</span>
+        android<span class="token operator">:</span>exported<span class="token operator">=</span><span class="token string">"false"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> This is needed <span class="token keyword">for</span> Scheduler <span class="token operator">--</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>intent<span class="token operator">-</span>filter<span class="token operator">></span>
+        <span class="token operator">&lt;</span>action android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"com.google.android.exoplayer.downloadService.action.RESTART"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>category android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.intent.category.DEFAULT"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>intent<span class="token operator">-</span>filter<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>service<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>见<code>DemoDownloadService</code>和<code>AndroidManifest.xml</code>在一个具体的例子中ExoPlayer演示应用程序。</p>
+<h3 id="2、创建-DownloadManager"><a href="#2、创建-DownloadManager" class="headerlink" title="2、创建 DownloadManager"></a>2、创建 DownloadManager</h3><p>下面的代码片段演示了如何实例化一个<code>DownloadManager</code>，可以通过返回<code>getDownloadManager()</code>在<code>DownloadService</code>：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Note: This should be a singleton in your app.</span>
+    databaseProvider <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ExoDatabaseProvider</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// A download cache should not evict media, so should use a NoopCacheEvictor.</span>
+    downloadCache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleCache</span><span class="token punctuation">(</span>
+        downloadDirectory<span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token class-name">NoOpCacheEvictor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        databaseProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Create a factory for reading the data from the network.</span>
+    dataSourceFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultHttpDataSourceFactory</span><span class="token punctuation">(</span>userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Create the download manager.</span>
+    downloadManager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DownloadManager</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        databaseProvider<span class="token punctuation">,</span>
+        downloadCache<span class="token punctuation">,</span>
+        dataSourceFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Optionally, setters can be called to configure the download manager.</span>
+    downloadManager<span class="token punctuation">.</span><span class="token function">setRequirements</span><span class="token punctuation">(</span>requirements<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    downloadManager<span class="token punctuation">.</span><span class="token function">setMaxParallelDownloads</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>请参阅<code>DemoApplication</code>演示应用程序中的具体示例。</p>
+<blockquote>
+<p>演示应用程序中的示例还从旧 <code>ActionFile</code> 实例导入下载状态。只有<code>ActionFile</code>在<code>ExoPlayer 2.10.0</code>之前使用您的应用程序时才需要这样做。</p>
+</blockquote>
+<h3 id="3、添加下载"><a href="#3、添加下载" class="headerlink" title="3、添加下载"></a>3、添加下载</h3><p>要添加下载，您需要创建一个<code>DownloadRequest</code>并将其发送给您 <code>DownloadService</code>。对于自适应流，<code>DownloadHelper</code>可以用来帮助构建一个<code>DownloadRequest</code>，如本页后面所述。以下示例显示了如何为渐进式流创建下载请求：</p>
+<pre class="line-numbers language-java"><code class="language-java">    DownloadRequest downloadRequest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DownloadRequest</span><span class="token punctuation">(</span>
+        contentId<span class="token punctuation">,</span>
+        DownloadRequest<span class="token punctuation">.</span>TYPE_PROGRESSIVE<span class="token punctuation">,</span>
+        contentUri<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* streamKeys= */</span> Collections<span class="token punctuation">.</span><span class="token function">emptyList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* customCacheKey= */</span> null<span class="token punctuation">,</span>
+        appData<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>contentId</code>是内容的唯一标识符，<code>appData</code>是应用程序希望与下载关联的任何数据。在简单的情况下， <code>contentUri</code>通常可以使用<code>contentId</code>，但应用程序可以自由使用任何最适合其用例的ID方案。</p>
+<p>创建后，可以将请求发送<code>DownloadService</code>到添加下载：</p>
+<pre class="line-numbers language-java"><code class="language-java">    DownloadService<span class="token punctuation">.</span><span class="token function">sendAddDownload</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        downloadRequest<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>MyDownloadServiceapp</code>的<code>DownloadService</code>子类在哪里， <code>foreground</code>参数控制是否在前台启动服务。如果你的应用程序已经在前台，那么<code>foreground</code>通常应该将参数设置为<code>false</code>，因为<code>DownloadService</code>如果它确定它有工作要做，它将把自己置于前台。</p>
+<h3 id="4、删除下载"><a href="#4、删除下载" class="headerlink" title="4、删除下载"></a>4、删除下载</h3><p>可以通过发送删除命令来删除下载<code>DownloadService</code>，其中<code>contentId</code>标识要删除的下载：</p>
+<pre class="line-numbers language-java"><code class="language-java">    DownloadService<span class="token punctuation">.</span><span class="token function">sendRemoveDownload</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        contentId<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>您还可以删除所有下载的数据 <code>DownloadService.sendRemoveAllDownloads</code>。</p>
+<h3 id="5、启动和停止下载"><a href="#5、启动和停止下载" class="headerlink" title="5、启动和停止下载"></a>5、启动和停止下载</h3><p>只有满足四个条件时才会下载：</p>
+<ul>
+<li>下载没有停止原因（见下文）。</li>
+<li>下载不会暂停。</li>
+<li>满足下载进度的要求。要求可以指定对允许的网络类型的约束，以及设备是空闲还是连接到充电器。</li>
+<li>不超过最大并行下载数。</li>
+</ul>
+<p>所有这些条件都可以通过发送命令来控制 <code>DownloadService</code>。</p>
+<h4 id="1-、设置和清除下载停止原因"><a href="#1-、设置和清除下载停止原因" class="headerlink" title="(1)、设置和清除下载停止原因"></a>(1)、设置和清除下载停止原因</h4><p>可以设置停止一个或所有下载的原因：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Set the stop reason for a single download.</span>
+    DownloadService<span class="token punctuation">.</span><span class="token function">sendSetStopReason</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        contentId<span class="token punctuation">,</span>
+        stopReason<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Clear the stop reason for a single download.</span>
+    DownloadService<span class="token punctuation">.</span><span class="token function">sendSetStopReason</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        contentId<span class="token punctuation">,</span>
+        Download<span class="token punctuation">.</span>STOP_REASON_NONE<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>stopReason</code>可以是任何非零值（<code>Download.STOP_REASON_NONE = 0</code>是一个特殊值，意味着下载没有停止）。有多种停止下载原因的应用可以使用不同的值来跟踪每次下载停止的原因。设置和清除所有下载的停止原因与设置和清除单个下载的停止原因的方式相同，但<code>contentId</code>应设置为<code>null</code>。</p>
+<p>当下载具有非零停止原因时，它将处于该 <code>Download.STATE_STOPPED</code>状态。</p>
+<h4 id="2-、暂停和恢复所有下载"><a href="#2-、暂停和恢复所有下载" class="headerlink" title="(2)、暂停和恢复所有下载"></a>(2)、暂停和恢复所有下载</h4><p>所有下载都可以暂停并恢复如下：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Pause all downloads.</span>
+    DownloadService<span class="token punctuation">.</span><span class="token function">sendPauseDownloads</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Resume all downloads.</span>
+    DownloadService<span class="token punctuation">.</span><span class="token function">sendResumeDownloads</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下载暂停时，它将处于该<code>Download.STATE_QUEUED</code>状态。</p>
+<h4 id="3-、设置下载要求的进度"><a href="#3-、设置下载要求的进度" class="headerlink" title="(3)、设置下载要求的进度"></a>(3)、设置下载要求的进度</h4><p><code>Requirements</code>可用于指定下载继续进行必须满足的约束。可以通过<code>DownloadManager.setRequirements()</code>在创建时调用来设置要求 <code>DownloadManager</code>，如上例所示。它们也可以通过向以下命令发送命令来动态更改<code>DownloadService</code>：</p>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">// Set the download requirements.</span>
+    DownloadService<span class="token punctuation">.</span><span class="token function">sendSetRequirements</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">,</span>
+        MyDownloadService<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        requirements<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">/* foreground= */</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果由于未满足要求而无法继续下载，则它将处于该<code>Download.STATE_QUEUED</code>状态。您可以使用查询不满足的要求<code>DownloadManager.getNotMetRequirements()</code>。</p>
+<h4 id="4-、设置最大并行下载数"><a href="#4-、设置最大并行下载数" class="headerlink" title="(4)、设置最大并行下载数"></a>(4)、设置最大并行下载数</h4><p>可以通过调用设置最大并行下载数 <code>DownloadManager.setMaxParallelDownloads()</code>。这通常在创建时完成<code>DownloadManager</code>，如上例所示。</p>
+<p>如果由于最大并行下载数量已在进行而无法继续下载，则它将处于该<code>Download.STATE_QUEUED</code>状态。</p>
+<h3 id="6、查询下载"><a href="#6、查询下载" class="headerlink" title="6、查询下载"></a>6、查询下载</h3><p><code>DownloadManager</code>的<code>DownloadIndex</code>可以查询所有下载，包括那些已完成或失败的状态。可以通过调用<code>DownloadManager.getDownloadIndex()</code>来获得该<code>DownloadIndex</code> 。然后可以通过调用<code>DownloadIndex.getDownloads()</code>获得迭代所有下载的游标 。或者，可以通过调用<code>DownloadIndex.getDownload()</code>查询单个下载的状态。</p>
+<p><code>DownloadManager</code>还提供<code>DownloadManager.getCurrentDownloads()</code>，仅返回当前状态（即未完成或失败）的下载。此方法对于更新显示当前下载的进度和状态的通知和其他UI组件非常有用。</p>
+<h3 id="7、听取下载"><a href="#7、听取下载" class="headerlink" title="7、听取下载"></a>7、听取下载</h3><p>您可以添加一个侦听器，<code>DownloadManager</code>以便在当前下载更改状态时收到通知：</p>
+<pre class="line-numbers language-java"><code class="language-java">    downloadManager<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span>
+        <span class="token keyword">new</span> <span class="token class-name">DownloadManager<span class="token punctuation">.</span>Listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// Override methods of interest here.</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>请参阅<code>DownloadManagerListener</code>演示应用程序<code>[DownloadTracker](https://github.com/google/ExoPlayer/tree/release-v2/demos/main/src/main/java/com/google/android/exoplayer2/demo/DownloadTracker.java)</code>类中的具体示例。</p>
+<blockquote>
+<p>下载进度更新不会触发调用<code>DownloadManager.Listener</code>。要更新显示下载进度的UI组件，您应该定期查询<code>DownloadManager</code>所需的更新速率。<code>DownloadService</code> 包含此示例，定期更新服务前台通知。</p>
+</blockquote>
+<h3 id="8、播放下载的内容"><a href="#8、播放下载的内容" class="headerlink" title="8、播放下载的内容"></a>8、播放下载的内容</h3><p>播放下载的内容类似于播放在线内容，除了从下载<code>Cache</code>而不是通过网络读取数据。</p>
+<blockquote>
+<p>请勿直接从下载目录中尝试读取文件，这一点很重要。而是使用如下所述的ExoPlayer库类。</p>
+</blockquote>
+<p>要播放下载的内容，请使用用于下载<code>CacheDataSourceFactory</code>的相同<code>Cache</code>实例创建一个。使用此工厂类，构建一个<code>MediaSource</code>播放。您应该使用原始内容<code>contentUri</code>（即下载的内容）构建<code>MediaSource</code>，而不是指向下载目录或其中任何文件的<code>URI</code>。</p>
+<pre class="line-numbers language-java"><code class="language-java">    CacheDataSourceFactory dataSourceFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CacheDataSourceFactory</span><span class="token punctuation">(</span>
+        downloadCache<span class="token punctuation">,</span> upstreamDataSourceFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ProgressiveMediaSource mediaSource <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ProgressiveMediaSource</span>
+        <span class="token punctuation">.</span><span class="token function">Factory</span><span class="token punctuation">(</span>dataSourceFactory<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>contentUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    player<span class="token punctuation">.</span><span class="token function">prepare</span><span class="token punctuation">(</span>mediaSource<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="9、下载和播放自适应流"><a href="#9、下载和播放自适应流" class="headerlink" title="9、下载和播放自适应流"></a>9、下载和播放自适应流</h3><p>自适应流（例如<code>DASH</code>，<code>SmoothStreaming</code>和<code>HLS</code>）通常包含多个媒体轨道。通常有多个轨道包含不同质量的相同内容（例如<code>SD</code>，<code>HD</code>和<code>4K</code>视频轨道）。可能还存在包含不同内容的相同类型的多个轨道（例如，不同语言的多个音轨）。</p>
+<p>对于流式播放，可以使用轨道选择器来选择播放哪个轨道。类似地，对于下载，<code>DownloadHelper</code>可以使用来选择下载哪个轨道。<code>DownloadHelper</code>的典型用法如下：</p>
+<ul>
+<li>使用其中一种<code>DownloadHelper.forXXX</code>方法构建一个<code>DownloadHelper</code>。</li>
+<li>使用<code>prepare(DownloadHelper.Callback)</code>并准备帮助程序并等待回调。</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java">    DownloadHelper downloadHelper <span class="token operator">=</span>
+        DownloadHelper<span class="token punctuation">.</span><span class="token function">forDash</span><span class="token punctuation">(</span>
+            contentUri<span class="token punctuation">,</span>
+            dataSourceFactory<span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">DefaultRenderersFactory</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    downloadHelper<span class="token punctuation">.</span><span class="token function">prepare</span><span class="token punctuation">(</span>myCallback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>可以选择使用检查默认选定的曲目 <code>getMappedTrackInfo</code> 和 <code>getTrackSelections</code> ，使用<code>clearTrackSelections</code>，<code>replaceTrackSelections</code>和<code>addTrackSelection</code>进行调整。</li>
+<li>通过调用<code>getDownloadRequest</code>为所选曲目创建一个<code>DownloadRequest</code>。如上所述，请求可以传递给<code>DownloadService</code>添加下载。</li>
+<li>使用<code>release()</code>释放<code>helper</code>。</li>
+</ul>
+<p>您可以通过调用<code>DownloadHelper.createMediaSource</code>以下内容创建<code>MediaSource</code>播放 ：</p>
+<pre class="line-numbers language-java"><code class="language-java">    MediaSource mediaSource <span class="token operator">=</span>
+        DownloadHelper<span class="token punctuation">.</span><span class="token function">createMediaSource</span><span class="token punctuation">(</span>downloadRequest<span class="token punctuation">,</span> dataSourceFactory<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>创建<code>MediaSource</code>的人知道已下载了哪些曲目，因此只会在播放期间尝试使用这些曲目。请参阅 <a href="https://github.com/google/ExoPlayer/tree/release-v2/demos/main/src/main/java/com/google/android/exoplayer2/demo/PlayerActivity.java" target="_blank" rel="noopener">PlayerActivity</a> 演示应用程序中的具体示例。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我分享的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/reward/alipay.bmp" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/reward/wechat.bmp" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://www.sharerdiary.com" class="b-link-green">分享客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/undefined/201910152247.html" class="b-link-green">ExoPlayer详解——入门（官方文档）</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '60da9d8e9e64806f54ef',
+        clientSecret: '81d3af2a76badd01407226de447d49d098bcd934',
+        repo: 'MrYZJ.github.io',
+        owner: 'MrYZJ',
+        admin: ["MrYZJ"],
+        id: 'undefined/201910152247.html',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    /* valine 评论框增加背景图片 */
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    /* 修复评论第一行位置错位 */
+    .v .vlist .vcard {
+    padding-top: 2.5em !important ;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="/libs//libs/jQuery-emoji/dist/css/jquery.emoji.css">
+<script src="/libs//libs/jQuery-emoji/dist/js/jquery.emoji.min.js"></script>
+<script src="/libs//libs/jQuery-emoji/dist/js/emoji.list.js"></script> -->
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '3B9hgEJ9DoN3Kq7uyFeneKJc-gzGzoHsz',
+        appKey: 'e9H5XvvaVzlGF1lmKIHxPfTW',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: '/medias/avatars/yezijie.jpg',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go',
+
+    });
+
+//     function parse_emoji() {
+//     jQuery(".vcontent").emojiParse({
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists   // 注：详见 js/emoji.list.js
+//     });
+//   }
+  
+//   setTimeout(function() {
+//     // jQuery emoji 解析
+//     parse_emoji();
+//     // jquery emoji 初始化
+//     jQuery(".veditor").emoji({
+//       showTab: true,
+//       animation: 'slide',
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists  // 注：详见 js/emoji.list.js
+//     });
+//     jQuery(".vmore").on("click", function() {
+//       setTimeout(function() {
+//         parse_emoji();
+//       }, 500);
+//     });
+//   }, 800)
+
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/undefined/201910152249.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/18.jpg" class="responsive-img" alt="ExoPlayer详解——高级主题（官方文档）">
+                        
+                        <span class="card-title">ExoPlayer详解——高级主题（官方文档）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Android视频播放器开发知识点，ExoPlayer播放器高级主题知识点。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category" target="_blank">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Android/" target="_blank">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                    <a href="/tags/播放器/" target="_blank">
+                        <span class="chip bg-color">播放器</span>
+                    </a>
+                    
+                    <a href="/tags/ExoPlayer/" target="_blank">
+                        <span class="chip bg-color">ExoPlayer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/undefined/201910152248.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/9.jpg" class="responsive-img" alt="ExoPlayer详解——媒体类型（官方文档）">
+                        
+                        <span class="card-title">ExoPlayer详解——媒体类型（官方文档）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Android视频播放器开发知识点，ExoPlayer播放器媒体类型知识点。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category" target="_blank">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Android/" target="_blank">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                    <a href="/tags/播放器/" target="_blank">
+                        <span class="chip bg-color">播放器</span>
+                    </a>
+                    
+                    <a href="/tags/ExoPlayer/" target="_blank">
+                        <span class="chip bg-color">ExoPlayer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 分享客<br />'
+            + '作者: MrYZJ<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处：分享客（https://sharerdiary.com/）。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+        <footer class="page-footer bg-color show-footer">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy; 2019 分享客·MrYZJ. All Rights Reserved. 
+			
+            <span id="sitetime"></span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;总访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">22.5k</span> 字
+            
+
+            
+            <br>
+			<!--站长统计数据-->
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278120854'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/z_stat.php%3Fid%3D1278120854%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+			<br>
+			
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2297541744@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2297541744&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/MrYZJ0716" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+	 </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2019, 10, 15, 00, 00, 00); //北京时间2019-10-15 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 时 " + diffMinutes + " 分 " + diffSeconds + " 秒" ;
+    } 
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="/libs/materialize/materialize.min.js"></script>
+        <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+        <script src="/libs/aos/aos.js"></script>
+        <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+        <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150374359-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-150374359-1');
+</script>
+
+
+
+        
+
+        
+            <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+        
+
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "分享客", clearTimeout(st)) : (document.title =
+                    "爱生活，爱分享", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+		 
+			<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- weather_plugin -->
+<script type="text/javascript">
+	WIDGET = {FID: '5z352kSocY'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> --> 
+<script type="text/javascript"> //只在桌面版网页启用特效 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>'); 
+	}
+ </script>
+ 
+		
+
+        <!-- 鼠标点击烟花爆炸效果   -->
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+
+        <!-- 鼠标点击文字特效 -->
+        
+
+        <!-- 背景雪花飘落特效   -->
+        
+
+        <!-- 在线聊天工具  -->
+        
+
+        <!-- 背景 canvas-nest  -->
+        
+
+        <!-- 背景静止彩带  -->
+        
+
+        <!-- 背景动态彩带  -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
