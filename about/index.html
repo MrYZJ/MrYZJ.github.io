@@ -646,10 +646,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 
 <table>
-  <tbody><tr>
+  <tr>
     <td><img width="100" src="https://sharerdiary.com/medias/reward/alipay.bmp"> </td>   	  <td><img width="100" src="https://sharerdiary.com/medias/reward/wechat.bmp"></td>       <td><img width="100" src="https://sharerdiary.com/medias/reward/zan.png"></td>   
   </tr>
-</tbody></table>
+</table>
 
 
 
@@ -666,25 +666,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <li><p>2019-10-15    建站</p>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 							</div>
 					</div>
 				</div>
@@ -917,7 +899,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"每日分享","value":3},{"name":"Android","value":4},{"name":"实用工具","value":2},{"name":"告示","value":1}],
+                data: [{"name":"Android","value":4},{"name":"每日分享","value":3},{"name":"实用工具","value":2},{"name":"告示","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -941,7 +923,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Android","播放器","ExoPlayer","福利","视频","每日分享","Google插件","腾讯视频","爱奇艺","优酷"]
+                data: ["Android","播放器","ExoPlayer","福利","每日分享","视频","Google插件","音乐","网易云","腾讯视频"]
             }
         ],
         yAxis: [
@@ -1030,7 +1012,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">21.5k</span> 字
+                <span class="white-color">21k</span> 字
             
 
             
