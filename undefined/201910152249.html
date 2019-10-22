@@ -882,9 +882,9 @@ Android API">
 <li><strong>为什么有些流会因HTTP响应代码301或302而失败？</strong></li>
 </ul>
 <p>HTTP响应代码301和302都指示重定向。可以在<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">维基百科</a>上找到简要描述。当ExoPlayer发出请求并收到状态码为301或302的响应时，它通常会遵循重定向并正常开始播放。默认情况下不会发生这种情况的一种情况是跨协议重定向。跨协议重定向是从HTTPS重定向到HTTP或反之亦然（或者不太常见，在另一对协议之间）。您可以使用<a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener">wget</a>命令行工具测试URL是否导致跨协议重定向，如下所示：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">    wget "https://yourserver.com/test.mp3" 2&gt;&amp;1  | grep Location<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">    wget "https://yourserver.com/test.mp3" 2>&1  | grep Location<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>输出应该如下所示：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">    $ wget "https://yourserver.com/test.mp3" 2&gt;&amp;1  | grep Location
+<pre class="line-numbers language-shell"><code class="language-shell">    $ wget "https://yourserver.com/test.mp3" 2>&1  | grep Location
     Location: https://second.com/test.mp3 [following]
     Location: http://third.com/test.mp3 [following]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在此示例中，有两个重定向。第一个重定向是从 <code>https://yourserver.com/test.mp3到https://second.com/test.mp3</code>。两者都是HTTPS，因此这不是跨协议重定向。第二重定向是从 <code>https://second.com/test.mp3</code>到<code>http://third.com/test.mp3</code>。这会从HTTPS重定向到HTTP，因此是跨协议重定向。ExoPlayer在默认配置中不会遵循此重定向，这意味着播放将失败。</p>
@@ -1035,7 +1035,7 @@ Android API">
           AudioRendererEventListener audioRendererEventListener<span class="token punctuation">,</span>
           TextOutput textRendererOutput<span class="token punctuation">,</span>
           MetadataOutput metadataRendererOutput<span class="token punctuation">,</span>
-          DrmSessionManager<span class="token operator">&lt;</span>FrameworkMediaCrypto<span class="token operator">&gt;</span> drmSessionManager<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          DrmSessionManager<span class="token operator">&lt;</span>FrameworkMediaCrypto<span class="token operator">></span> drmSessionManager<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Renderer</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">MediaCodecAudioRenderer</span><span class="token punctuation">(</span>
             MediaCodecSelector<span class="token punctuation">.</span>DEFAULT<span class="token punctuation">,</span> eventHandler<span class="token punctuation">,</span> audioRendererEventListener<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
@@ -1633,16 +1633,16 @@ Android API">
                         <span class="chip bg-color">福利</span>
                     </a>
                     
+                    <a href="/tags/每日分享/" target="_blank">
+                        <span class="chip bg-color">每日分享</span>
+                    </a>
+                    
                     <a href="/tags/音乐/" target="_blank">
                         <span class="chip bg-color">音乐</span>
                     </a>
                     
                     <a href="/tags/网易云/" target="_blank">
                         <span class="chip bg-color">网易云</span>
-                    </a>
-                    
-                    <a href="/tags/每日分享/" target="_blank">
-                        <span class="chip bg-color">每日分享</span>
                     </a>
                     
                 </div>
@@ -1891,7 +1891,7 @@ Android API">
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">22.6k</span> 字
+                <span class="white-color">21.5k</span> 字
             
 
             
