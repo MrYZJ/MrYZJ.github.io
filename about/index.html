@@ -646,10 +646,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 
 <table>
-  <tr>
+  <tbody><tr>
     <td><img width="100" src="https://sharerdiary.com/medias/reward/alipay.bmp"> </td>   	  <td><img width="100" src="https://sharerdiary.com/medias/reward/wechat.bmp"></td>       <td><img width="100" src="https://sharerdiary.com/medias/reward/zan.png"></td>   
   </tr>
-</table>
+</tbody></table>
 
 
 
@@ -659,6 +659,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </li>
 </ul>
 <h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><ul>
+<li><p>2019-10-23    添加三个在线音乐播放器</p>
+</li>
 <li><p>2019-10-22    添加悬浮音乐播放器</p>
 </li>
 <li><p>2019-10-20    添加快速导航栏</p>
@@ -666,7 +668,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <li><p>2019-10-15    建站</p>
 </li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
 							</div>
 					</div>
 				</div>
@@ -899,7 +919,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"每日分享","value":3},{"name":"Android","value":4},{"name":"告示","value":1},{"name":"实用工具","value":2}],
+                data: [{"name":"Android","value":4},{"name":"每日分享","value":3},{"name":"实用工具","value":2},{"name":"告示","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
