@@ -635,7 +635,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <p>博客网址:  <a href="https://sharerdiary.com/" target="_blank" rel="noopener">https://sharerdiary.com/</a> </p>
 <p>博客头像:  <a href="https://sharerdiary.com/yezijie.jpg" target="_blank" rel="noopener">https://sharerdiary.com/yezijie.jpg</a></p>
 <p>博客介绍: 爱生活，爱分享！</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
                 </div>
 			</div>
 		</div>
@@ -1010,7 +1028,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">21k</span> 字
+                <span class="white-color">21.5k</span> 字
             
 
             

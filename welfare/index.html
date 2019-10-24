@@ -651,7 +651,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <h1 id="免费图片"><a href="#免费图片" class="headerlink" title="免费图片"></a><center>免费图片</center></h1><blockquote>
 <p><a href="https://sharerdiary.com/galleries/" target="_blank" rel="noopener">传送门</a></p>
 </blockquote>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
 						</div>
 					</div>
 				</div>
@@ -698,7 +716,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">21k</span> 字
+                <span class="white-color">21.5k</span> 字
             
 
             

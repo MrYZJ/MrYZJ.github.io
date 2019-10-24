@@ -746,7 +746,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div id="articleContent" data-aos="fade-up">
                             <h1 id="音乐福利"><a href="#音乐福利" class="headerlink" title="音乐福利"></a>音乐福利</h1><p> <a href="https://mryzj.coding.me/welfare/music/" target="_blank" rel="noopener">传送门</a> </p>
 <h1 id="视频福利"><a href="#视频福利" class="headerlink" title="视频福利"></a>视频福利</h1><p><a href="https://mryzj.coding.me/welfare/movies/" target="_blank" rel="noopener">传送门</a></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
                         </div>
                 </div>
             </div>
@@ -792,7 +810,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">21k</span> 字
+                <span class="white-color">21.5k</span> 字
             
 
             
