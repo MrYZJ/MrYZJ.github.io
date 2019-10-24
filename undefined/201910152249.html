@@ -1261,6 +1261,11 @@ Android API">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
+	<div class="comment_headling" style="font-size: 25px; font-weight: bold; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fa fa-commenting fa-fw" aria-hidden="true"></i>
+        <span>评论区</span>
+    </div>
+	<hr>
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
@@ -1536,6 +1541,11 @@ Android API">
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
+	<div class="comment_headling" style="font-size: 25px; font-weight: bold; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fa fa-commenting fa-fw" aria-hidden="true"></i>
+        <span>评论区</span>
+    </div>
+	<hr>
     <div id="vcomments" class="card-content"></div>
 </div>
 
@@ -1559,29 +1569,29 @@ Android API">
 
     });
 
-//     function parse_emoji() {
-//     jQuery(".vcontent").emojiParse({
-//       basePath: '/libs/jQuery-emoji/images/emoji',
-//       icons: emojiLists   // 注：详见 js/emoji.list.js
-//     });
-//   }
+     function parse_emoji() {
+     jQuery(".vcontent").emojiParse({
+       basePath: '/libs/jQuery-emoji/images/emoji',
+       icons: emojiLists   // 注：详见 js/emoji.list.js
+     });
+   }
   
-//   setTimeout(function() {
-//     // jQuery emoji 解析
-//     parse_emoji();
-//     // jquery emoji 初始化
-//     jQuery(".veditor").emoji({
-//       showTab: true,
-//       animation: 'slide',
-//       basePath: '/libs/jQuery-emoji/images/emoji',
-//       icons: emojiLists  // 注：详见 js/emoji.list.js
-//     });
-//     jQuery(".vmore").on("click", function() {
-//       setTimeout(function() {
-//         parse_emoji();
-//       }, 500);
-//     });
-//   }, 800)
+   setTimeout(function() {
+     // jQuery emoji 解析
+     parse_emoji();
+     // jquery emoji 初始化
+     jQuery(".veditor").emoji({
+       showTab: true,
+       animation: 'slide',
+       basePath: '/libs/jQuery-emoji/images/emoji',
+       icons: emojiLists  // 注：详见 js/emoji.list.js
+     });
+     jQuery(".vmore").on("click", function() {
+       setTimeout(function() {
+         parse_emoji();
+       }, 500);
+     });
+   }, 800)
 
 </script>
     
@@ -1633,16 +1643,16 @@ Android API">
                         <span class="chip bg-color">福利</span>
                     </a>
                     
+                    <a href="/tags/每日分享/" target="_blank">
+                        <span class="chip bg-color">每日分享</span>
+                    </a>
+                    
                     <a href="/tags/音乐/" target="_blank">
                         <span class="chip bg-color">音乐</span>
                     </a>
                     
                     <a href="/tags/网易云/" target="_blank">
                         <span class="chip bg-color">网易云</span>
-                    </a>
-                    
-                    <a href="/tags/每日分享/" target="_blank">
-                        <span class="chip bg-color">每日分享</span>
                     </a>
                     
                 </div>

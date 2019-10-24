@@ -588,6 +588,13 @@
 </header>
 
         <!-- shw2018 洪卫  modify 2019.08.15-->
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+</style>
+
 <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
@@ -623,19 +630,33 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
 <main class="content">
-    <div id="aboutme" class="container contact-container">
+    <div id="contact" class="container contact-container">
         <div class="card">
-            <div class="card-content">
-                <div id="articleContent" data-aos="fade-up">
-                    <h2 id="欢乐留言，快乐分享"><a href="#欢乐留言，快乐分享" class="headerlink" title="欢乐留言，快乐分享"></a>欢乐留言，快乐分享</h2><hr>
-<p>在这里可以留下你的足迹，可以献出您宝贵的建议，也可以吐槽，还可以分享你的日常，做一个快乐的分享刻贡献者！希望添加友链的朋友，可以按一下格式留言，一起交流学习！</p>
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><hr>
-<p>爱分享友链信息</p>
-<p>博客名称: 分享客</p>
-<p>博客网址:  <a href="https://sharerdiary.com/" target="_blank" rel="noopener">https://sharerdiary.com/</a> </p>
-<p>博客头像:  <a href="https://sharerdiary.com/yezijie.jpg" target="_blank" rel="noopener">https://sharerdiary.com/yezijie.jpg</a></p>
-<p>博客介绍: 爱生活，爱分享！</p>
-<script>
+			<div class="card">
+				<div class="card-content">
+					<div class="card-content article-card-content">
+						<div class="title center-align" data-aos="zoom-in-up">
+							<i class="fa fa-commenting"></i>&nbsp;&nbsp;留言板
+						</div>
+						<hr>
+						<div style="margin:-20px 0px;padding:0px;">
+							<span class="mytk center-align">
+								<br>
+								<h4>欢迎来到本博客的留言板！</h4>
+								<h6>在这里可以留下您的足迹</h6>
+								<h6>既可以献出您宝贵的建议，也可以吐槽</h6>
+								<h6>但我更希望大家可以像我一样</h6>
+								<h6>做一个快乐的分享客</h6>
+								<h6>给广大朋友们带来更多福利</h6>
+							</span>
+							
+							<div class="myeach">
+								<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5vwrksxt599&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+							</div>
+						</div>
+						
+						<div id="articleContent" data-aos="fade-up">
+							<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -654,7 +675,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             document.body.appendChild(img);
           });
       </script>
-                </div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
                    
@@ -663,6 +686,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
+	<div class="comment_headling" style="font-size: 25px; font-weight: bold; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fa fa-commenting fa-fw" aria-hidden="true"></i>
+        <span>评论区</span>
+    </div>
+	<hr>
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
@@ -938,6 +966,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
+	<div class="comment_headling" style="font-size: 25px; font-weight: bold; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fa fa-commenting fa-fw" aria-hidden="true"></i>
+        <span>评论区</span>
+    </div>
+	<hr>
     <div id="vcomments" class="card-content"></div>
 </div>
 
@@ -961,29 +994,29 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     });
 
-//     function parse_emoji() {
-//     jQuery(".vcontent").emojiParse({
-//       basePath: '/libs/jQuery-emoji/images/emoji',
-//       icons: emojiLists   // 注：详见 js/emoji.list.js
-//     });
-//   }
+     function parse_emoji() {
+     jQuery(".vcontent").emojiParse({
+       basePath: '/libs/jQuery-emoji/images/emoji',
+       icons: emojiLists   // 注：详见 js/emoji.list.js
+     });
+   }
   
-//   setTimeout(function() {
-//     // jQuery emoji 解析
-//     parse_emoji();
-//     // jquery emoji 初始化
-//     jQuery(".veditor").emoji({
-//       showTab: true,
-//       animation: 'slide',
-//       basePath: '/libs/jQuery-emoji/images/emoji',
-//       icons: emojiLists  // 注：详见 js/emoji.list.js
-//     });
-//     jQuery(".vmore").on("click", function() {
-//       setTimeout(function() {
-//         parse_emoji();
-//       }, 500);
-//     });
-//   }, 800)
+   setTimeout(function() {
+     // jQuery emoji 解析
+     parse_emoji();
+     // jquery emoji 初始化
+     jQuery(".veditor").emoji({
+       showTab: true,
+       animation: 'slide',
+       basePath: '/libs/jQuery-emoji/images/emoji',
+       icons: emojiLists  // 注：详见 js/emoji.list.js
+     });
+     jQuery(".vmore").on("click", function() {
+       setTimeout(function() {
+         parse_emoji();
+       }, 500);
+     });
+   }, 800)
 
 </script>
         
