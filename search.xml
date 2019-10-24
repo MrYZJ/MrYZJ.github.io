@@ -20,6 +20,8 @@
       
         <tags>
             
+            <tag> 每日分享 </tag>
+            
             <tag> 视频 </tag>
             
             <tag> 学习 </tag>
@@ -44,12 +46,14 @@
       
       <categories>
           
-          <category> 实用工具 </category>
+          <category> 每日分享 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 每日分享 </tag>
             
             <tag> Google插件 </tag>
             
@@ -64,8 +68,6 @@
             <tag> 流程图 </tag>
             
             <tag> ERD </tag>
-            
-            <tag> UI </tag>
             
         </tags>
       
@@ -83,12 +85,14 @@
       
       <categories>
           
-          <category> 实用工具 </category>
+          <category> 每日分享 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 每日分享 </tag>
             
             <tag> google服务 </tag>
             

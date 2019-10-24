@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.sharerdiary.com/"/>
-  <updated>2019-10-22T17:02:16.262Z</updated>
+  <updated>2019-10-24T11:17:18.473Z</updated>
   <id>https://www.sharerdiary.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.sharerdiary.com/undefined/201910230023.html"/>
     <id>https://www.sharerdiary.com/undefined/201910230023.html</id>
     <published>2019-10-22T16:23:49.000Z</published>
-    <updated>2019-10-22T17:02:16.262Z</updated>
+    <updated>2019-10-24T11:17:18.473Z</updated>
     
     <summary type="html">
     
@@ -38,6 +38,8 @@
       <category term="每日分享" scheme="https://www.sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
     
+      <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
       <category term="视频" scheme="https://www.sharerdiary.com/tags/%E8%A7%86%E9%A2%91/"/>
     
       <category term="学习" scheme="https://www.sharerdiary.com/tags/%E5%AD%A6%E4%B9%A0/"/>
@@ -53,7 +55,7 @@
     <link href="https://www.sharerdiary.com/undefined/201910201203.html"/>
     <id>https://www.sharerdiary.com/undefined/201910201203.html</id>
     <published>2019-10-20T04:03:43.000Z</published>
-    <updated>2019-10-22T16:32:41.755Z</updated>
+    <updated>2019-10-24T11:17:26.293Z</updated>
     
     <summary type="html">
     
@@ -67,8 +69,10 @@
     
     </summary>
     
-      <category term="实用工具" scheme="https://www.sharerdiary.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+      <category term="每日分享" scheme="https://www.sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
+    
+      <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
       <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
     
@@ -84,8 +88,6 @@
     
       <category term="ERD" scheme="https://www.sharerdiary.com/tags/ERD/"/>
     
-      <category term="UI" scheme="https://www.sharerdiary.com/tags/UI/"/>
-    
   </entry>
   
   <entry>
@@ -93,7 +95,7 @@
     <link href="https://www.sharerdiary.com/undefined/201910191301.html"/>
     <id>https://www.sharerdiary.com/undefined/201910191301.html</id>
     <published>2019-10-19T05:01:05.000Z</published>
-    <updated>2019-10-22T16:31:43.207Z</updated>
+    <updated>2019-10-24T11:17:11.051Z</updated>
     
     <summary type="html">
     
@@ -107,8 +109,10 @@
     
     </summary>
     
-      <category term="实用工具" scheme="https://www.sharerdiary.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+      <category term="每日分享" scheme="https://www.sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
+    
+      <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
     
       <category term="google服务" scheme="https://www.sharerdiary.com/tags/google%E6%9C%8D%E5%8A%A1/"/>
     
