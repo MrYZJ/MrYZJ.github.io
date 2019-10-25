@@ -1739,9 +1739,22 @@ $(function () {
 
     <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 	
-	<!-- china_weather -->
-	<script type="text/javascript">
-		WIDGET = {FID: '6QGi2GTrQb'}
-	</script>
-	<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+	<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+	 
+		<!-- 天气接口控件 叶子杰 MrYZJ add 2019.10.15 --> 
+<!-- china_weather -->
+<script type="text/javascript">
+	WIDGET = {FID: '6QGi2GTrQb'}
+</script>
+
+<script type="text/javascript"> 
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) {
+		document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>'); 
+	}
+</script>
+ 
+	 
+	
+	
 </html>
