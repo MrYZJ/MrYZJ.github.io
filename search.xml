@@ -20,13 +20,13 @@
       
         <tags>
             
+            <tag> 视频 </tag>
+            
             <tag> 每日分享 </tag>
             
             <tag> 学习 </tag>
             
             <tag> 慕课 </tag>
-            
-            <tag> 视频 </tag>
             
             <tag> 免费资源 </tag>
             
@@ -66,8 +66,6 @@
             <tag> UML </tag>
             
             <tag> 流程图 </tag>
-            
-            <tag> ERD </tag>
             
         </tags>
       
@@ -127,8 +125,6 @@
             
             <tag> 福利 </tag>
             
-            <tag> 每日分享 </tag>
-            
             <tag> 视频 </tag>
             
             <tag> 腾讯视频 </tag>
@@ -136,6 +132,8 @@
             <tag> 爱奇艺 </tag>
             
             <tag> 优酷 </tag>
+            
+            <tag> 每日分享 </tag>
             
         </tags>
       
@@ -162,11 +160,11 @@
             
             <tag> 福利 </tag>
             
+            <tag> 每日分享 </tag>
+            
             <tag> 音乐 </tag>
             
             <tag> 网易云 </tag>
-            
-            <tag> 每日分享 </tag>
             
         </tags>
       
