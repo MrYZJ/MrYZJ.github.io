@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.sharerdiary.com/movies/index.html</loc>
+    
+    <lastmod>2019-10-26T13:00:50.567Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.sharerdiary.com/friends/index.html</loc>
     
     <lastmod>2019-10-26T01:51:50.287Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://www.sharerdiary.com/more/index.html</loc>
     
     <lastmod>2019-10-20T14:12:56.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.sharerdiary.com/movies/index.html</loc>
-    
-    <lastmod>2019-10-18T02:29:39.338Z</lastmod>
     
   </url>
   
