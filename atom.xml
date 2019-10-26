@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.sharerdiary.com/"/>
-  <updated>2019-10-24T11:17:18.473Z</updated>
+  <updated>2019-10-26T14:28:10.765Z</updated>
   <id>https://www.sharerdiary.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【每日分享】南瓜影视-给你好看</title>
+    <link href="https://www.sharerdiary.com/undefined/201910262116.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910262116.html</id>
+    <published>2019-10-26T13:16:57.000Z</published>
+    <updated>2019-10-26T14:28:10.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="每日分享" scheme="https://www.sharerdiary.com/categories/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="南瓜影视" scheme="https://www.sharerdiary.com/tags/%E5%8D%97%E7%93%9C%E5%BD%B1%E8%A7%86/"/>
+    
+      <category term="免费视频" scheme="https://www.sharerdiary.com/tags/%E5%85%8D%E8%B4%B9%E8%A7%86%E9%A2%91/"/>
+    
+      <category term="手机APP" scheme="https://www.sharerdiary.com/tags/%E6%89%8B%E6%9C%BAAPP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VideoView MediaPlayer的暂停播放监听播放时长的计时显示</title>
+    <link href="https://www.sharerdiary.com/undefined/2019102381201.html"/>
+    <id>https://www.sharerdiary.com/undefined/2019102381201.html</id>
+    <published>2019-10-23T04:01:00.000Z</published>
+    <updated>2019-10-26T14:24:40.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="VideoView" scheme="https://www.sharerdiary.com/tags/VideoView/"/>
+    
+      <category term="MediaPlayer" scheme="https://www.sharerdiary.com/tags/MediaPlayer/"/>
+    
+      <category term="监听按钮" scheme="https://www.sharerdiary.com/tags/%E7%9B%91%E5%90%AC%E6%8C%89%E9%92%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>【每日分享】慕课800G视频分享</title>
@@ -47,6 +109,98 @@
       <category term="慕课" scheme="https://www.sharerdiary.com/tags/%E6%85%95%E8%AF%BE/"/>
     
       <category term="免费资源" scheme="https://www.sharerdiary.com/tags/%E5%85%8D%E8%B4%B9%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java.net.SocketException_ socket failed_ EPERM (Operation not permitted)</title>
+    <link href="https://www.sharerdiary.com/undefined/201910221000.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910221000.html</id>
+    <published>2019-10-22T02:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.697Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="SocketException" scheme="https://www.sharerdiary.com/tags/SocketException/"/>
+    
+      <category term="网络请求" scheme="https://www.sharerdiary.com/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
+    
+      <category term="not permitted" scheme="https://www.sharerdiary.com/tags/not-permitted/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Failed to resolve_ com.android.xxx Add Google Maven repository and sync project</title>
+    <link href="https://www.sharerdiary.com/undefined/201910211000.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910211000.html</id>
+    <published>2019-10-21T02:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="Google" scheme="https://www.sharerdiary.com/tags/Google/"/>
+    
+      <category term="Maven" scheme="https://www.sharerdiary.com/tags/Maven/"/>
+    
+      <category term="repository" scheme="https://www.sharerdiary.com/tags/repository/"/>
+    
+      <category term="sync project" scheme="https://www.sharerdiary.com/tags/sync-project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Exception from call site</title>
+    <link href="https://www.sharerdiary.com/undefined/201910210900.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910210900.html</id>
+    <published>2019-10-21T01:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.689Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="BootstrapMethodError" scheme="https://www.sharerdiary.com/tags/BootstrapMethodError/"/>
+    
+      <category term="site" scheme="https://www.sharerdiary.com/tags/site/"/>
+    
+      <category term="bootstrap" scheme="https://www.sharerdiary.com/tags/bootstrap/"/>
     
   </entry>
   
@@ -89,6 +243,36 @@
   </entry>
   
   <entry>
+    <title>Android内存（RAM）大小信息查看、获取方法和内存分配方法</title>
+    <link href="https://www.sharerdiary.com/undefined/201910201000.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910201000.html</id>
+    <published>2019-10-20T02:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="获取内存信息" scheme="https://www.sharerdiary.com/tags/%E8%8E%B7%E5%8F%96%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF/"/>
+    
+      <category term="分配内存" scheme="https://www.sharerdiary.com/tags/%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98/"/>
+    
+      <category term="Android内存大小" scheme="https://www.sharerdiary.com/tags/Android%E5%86%85%E5%AD%98%E5%A4%A7%E5%B0%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【每日分享】一款免费的谷歌访问助手插件</title>
     <link href="https://www.sharerdiary.com/undefined/201910191301.html"/>
     <id>https://www.sharerdiary.com/undefined/201910191301.html</id>
@@ -119,6 +303,156 @@
       <category term="google搜索" scheme="https://www.sharerdiary.com/tags/google%E6%90%9C%E7%B4%A2/"/>
     
       <category term="Google插件" scheme="https://www.sharerdiary.com/tags/Google%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Studio 的Java文件左下角显示红色的J</title>
+    <link href="https://www.sharerdiary.com/undefined/201910191010.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910191010.html</id>
+    <published>2019-10-19T02:10:00.000Z</published>
+    <updated>2019-10-26T14:24:40.687Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="java" scheme="https://www.sharerdiary.com/tags/java/"/>
+    
+      <category term="无法识别" scheme="https://www.sharerdiary.com/tags/%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="Android Studio" scheme="https://www.sharerdiary.com/tags/Android-Studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The given artifact contains a string literal with a package reference &#39;android.support.v4.content&#39;</title>
+    <link href="https://www.sharerdiary.com/undefined/201910181200.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910181200.html</id>
+    <published>2019-10-18T04:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.699Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="Android Studio" scheme="https://www.sharerdiary.com/tags/Android-Studio/"/>
+    
+      <category term="given artifact" scheme="https://www.sharerdiary.com/tags/given-artifact/"/>
+    
+      <category term="support.v4" scheme="https://www.sharerdiary.com/tags/support-v4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>由于目标计算机积极拒绝，无法连接。 (10061)</title>
+    <link href="https://www.sharerdiary.com/undefined/201910181010.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910181010.html</id>
+    <published>2019-10-18T02:10:00.000Z</published>
+    <updated>2019-10-26T14:24:40.703Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="无法连接" scheme="https://www.sharerdiary.com/tags/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="USB调试" scheme="https://www.sharerdiary.com/tags/USB%E8%B0%83%E8%AF%95/"/>
+    
+      <category term="adb命令" scheme="https://www.sharerdiary.com/tags/adb%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux中“XXX is not in the sudoers file”解决方法</title>
+    <link href="https://www.sharerdiary.com/undefined/201910171200.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910171200.html</id>
+    <published>2019-10-17T04:00:00.000Z</published>
+    <updated>2019-10-26T14:24:40.694Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.sharerdiary.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.sharerdiary.com/tags/Linux/"/>
+    
+      <category term="sudoers" scheme="https://www.sharerdiary.com/tags/sudoers/"/>
+    
+      <category term="sudo命令" scheme="https://www.sharerdiary.com/tags/sudo%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从0到1教你用VMware15.X安装Centos7.X</title>
+    <link href="https://www.sharerdiary.com/undefined/201910171010.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910171010.html</id>
+    <published>2019-10-17T02:10:00.000Z</published>
+    <updated>2019-10-26T14:24:40.702Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.sharerdiary.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.sharerdiary.com/tags/Linux/"/>
+    
+      <category term="VMware" scheme="https://www.sharerdiary.com/tags/VMware/"/>
+    
+      <category term="Centos" scheme="https://www.sharerdiary.com/tags/Centos/"/>
     
   </entry>
   
@@ -155,6 +489,34 @@
       <category term="优酷" scheme="https://www.sharerdiary.com/tags/%E4%BC%98%E9%85%B7/"/>
     
       <category term="每日分享" scheme="https://www.sharerdiary.com/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Android珍藏】推荐10个炫酷的 Github 开源库</title>
+    <link href="https://www.sharerdiary.com/undefined/201910161010.html"/>
+    <id>https://www.sharerdiary.com/undefined/201910161010.html</id>
+    <published>2019-10-16T02:10:00.000Z</published>
+    <updated>2019-10-26T14:24:40.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://www.sharerdiary.com/tags/Android/"/>
+    
+      <category term="GitHub 开源库" scheme="https://www.sharerdiary.com/tags/GitHub-%E5%BC%80%E6%BA%90%E5%BA%93/"/>
     
   </entry>
   
@@ -277,70 +639,6 @@
       <category term="播放器" scheme="https://www.sharerdiary.com/tags/%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
       <category term="ExoPlayer" scheme="https://www.sharerdiary.com/tags/ExoPlayer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模仿微信右上角弹出的菜单</title>
-    <link href="https://www.sharerdiary.com/undefined/201910152248.html"/>
-    <id>https://www.sharerdiary.com/undefined/201910152248.html</id>
-    <published>2019-10-15T14:48:00.000Z</published>
-    <updated>2019-10-21T05:53:52.490Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://www.sharerdiary.com/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://www.sharerdiary.com/tags/Android/"/>
-    
-      <category term="菜单" scheme="https://www.sharerdiary.com/tags/%E8%8F%9C%E5%8D%95/"/>
-    
-      <category term="微信" scheme="https://www.sharerdiary.com/tags/%E5%BE%AE%E4%BF%A1/"/>
-    
-      <category term="实例" scheme="https://www.sharerdiary.com/tags/%E5%AE%9E%E4%BE%8B/"/>
-    
-      <category term="menu" scheme="https://www.sharerdiary.com/tags/menu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欢迎来稿</title>
-    <link href="https://www.sharerdiary.com/undefined/201910151230.html"/>
-    <id>https://www.sharerdiary.com/undefined/201910151230.html</id>
-    <published>2019-10-15T04:30:34.000Z</published>
-    <updated>2019-10-22T16:33:05.188Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="告示" scheme="https://www.sharerdiary.com/categories/%E5%91%8A%E7%A4%BA/"/>
-    
-    
-      <category term="告示" scheme="https://www.sharerdiary.com/tags/%E5%91%8A%E7%A4%BA/"/>
-    
-      <category term="投稿" scheme="https://www.sharerdiary.com/tags/%E6%8A%95%E7%A8%BF/"/>
-    
-      <category term="分享" scheme="https://www.sharerdiary.com/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
